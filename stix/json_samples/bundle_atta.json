@@ -1,0 +1,1849 @@
+{
+    "type": "bundle",
+    "id": "bundle--bf46c3b9-c956-4059-a785-be8086d2672f",
+    "objects": [
+        {
+            "id": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "spec_version": "2.1",
+            "identity_class": "organization",
+            "name": "AlienVault",
+            "created": "2023-10-18T07:42:12.942Z",
+            "modified": "2023-10-26T20:17:11.884Z",
+            "x_opencti_id": "9da5c2ea-04e7-4c38-bb5a-99504cdbbefe",
+            "x_opencti_type": "Organization",
+            "type": "identity"
+        },
+        {
+            "type": "marking-definition",
+            "spec_version": "2.1",
+            "id": "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9",
+            "created": "2017-01-20T00:00:00.000Z",
+            "definition_type": "tlp",
+            "name": "TLP:CLEAR",
+            "definition": {
+                "tlp": "clear"
+            }
+        },
+        {
+            "id": "report--354f08b0-4ff7-5e16-a924-1648c2389f64",
+            "spec_version": "2.1",
+            "revoked": false,
+            "confidence": 50,
+            "created": "2024-01-12T23:18:15.390Z",
+            "modified": "2024-01-12T23:39:03.632Z",
+            "name": "Mirai Zombie Network Variant \"Aquabot\" Analysis",
+            "description": "Recently, Antiy CERT captured a new variant of the Mirai zombie network targeting various architectures such as MIPS, ARM, and X86. It infects targets using weak passwords and waits for control commands to execute DDoS attacks. Due to the zombie network files being named with \"Aqua*,\" we have named it Aquabot.",
+            "report_types": [
+                "threat-report"
+            ],
+            "published": "2024-01-12T23:18:15.390Z",
+            "labels": [
+                "mirai",
+                "linux",
+                "ddos",
+                "botnet",
+                "password scanning"
+            ],
+            "external_references": [
+                {
+                    "source_name": "AlienVault",
+                    "url": "https://www.antiy.cn/research/notice&report/research_report/Aquabot.html"
+                },
+                {
+                    "source_name": "AlienVault",
+                    "url": "https://otx.alienvault.com/pulse/65a1c8b8e594b81a65b8c9f1",
+                    "external_id": "65a1c8b8e594b81a65b8c9f1"
+                }
+            ],
+            "x_opencti_id": "f4e45c6a-8810-48f5-840b-76f5b748933b",
+            "x_opencti_type": "Report",
+            "type": "report",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "object_refs": [
+                "attack-pattern--6b7c5e62-971a-50c7-838a-80e849a2ed66",
+                "attack-pattern--83916d68-7b2a-5d78-a429-5bb79013a70d",
+                "attack-pattern--993fbee2-ca5c-5768-aec7-07d91d292f45",
+                "attack-pattern--da5d3be8-58b7-5f3b-9253-f93d44eaf0f0",
+                "attack-pattern--ec43290b-5d63-5851-8a61-684fa856316f",
+                "attack-pattern--fc18ea50-e338-52c8-a01c-26529e41d9d0",
+                "attack-pattern--fc3e024a-8a0c-599c-90dc-2ac36b766041",
+                "attack-pattern--fdb56b99-aa1d-5b2b-a5bb-8e502ca4a51c",
+                "file--06f5ea2a-d7f5-5b62-b94c-9c111eabfc07",
+                "file--3dab285a-651c-522b-a39f-853949da7e83",
+                "file--789ee4cc-84ab-53a3-adba-0488d41ac30d",
+                "file--7d7fe7e7-09c2-54a0-b233-ee6a99d1babb",
+                "file--bc39a7dc-9a52-5f39-a557-f23d81939845",
+                "file--c71f4807-495f-593c-9e9e-e1fa8b561ef0",
+                "file--e2a34a36-37d8-5520-ae7b-90ac7252653b",
+                "file--e2dbe652-6a54-5187-9323-65f43718cbb2",
+                "hostname--ba67b22d-db45-5650-b5b7-7f9b5c449068",
+                "indicator--003f5386-0701-58a3-9365-6e2784b9ba0b",
+                "indicator--33593dc2-cd60-5d93-8511-cd1002c6bcb1",
+                "indicator--3fcef48a-7ece-5d34-8ebe-366145948987",
+                "indicator--43e28de1-5718-5728-995e-3397400ce4e6",
+                "indicator--5148650d-dcae-5572-a60a-7460604f60fb",
+                "indicator--6402f3b7-e3dc-5297-abef-62beedbdc04a",
+                "indicator--780819bd-a031-5058-aeb1-b534ffaec71e",
+                "indicator--a942bb02-22f2-5e4a-8d48-d47848f74508",
+                "indicator--cac2807b-430b-5259-b874-ff14c6817205",
+                "indicator--d1f89080-1099-5f55-aa35-8204b677b18d",
+                "ipv4-addr--71d5674d-903b-5abc-b436-7fd66694bdb4",
+                "malware--2df61a44-6e40-552a-a1e8-bbd9a7b81833",
+                "malware--7451fc92-0c10-526d-b710-c9bedc2b2634",
+                "relationship--02a52ed0-787e-43e3-ae8a-ab7fb8a40a6f",
+                "relationship--10c670ba-ca14-4205-9426-30249ae6e5ce",
+                "relationship--118472e5-c237-4f4a-9568-a0e1751c60d2",
+                "relationship--19a648e2-8a8d-4d40-894d-75ced56b4fad",
+                "relationship--1a382c02-faff-42ce-a0ad-8150603bc19f",
+                "relationship--26e1d76c-3a0d-4a70-a9d0-85fda0d9693c",
+                "relationship--34659e24-e691-4dbe-9e7a-81f5e8de902e",
+                "relationship--3c85ddfc-c93b-408f-9f8a-da307960bd44",
+                "relationship--3f26abf6-c89c-471f-bf73-b19405797b2d",
+                "relationship--49e9e764-742d-431d-8cec-8f5e84a21c87",
+                "relationship--530edf4d-cf59-4e43-9944-9c467964c168",
+                "relationship--54f7541a-1aa4-408f-a5f4-713007d4d995",
+                "relationship--55f30d02-ee1a-462b-abdd-734c5a1041e0",
+                "relationship--55f99f98-2e0c-4efc-ad42-6bd866e78db9",
+                "relationship--563ac573-406e-403a-a734-1203a7865ace",
+                "relationship--569df627-8a49-4c2f-8162-ebbb9aae1a3f",
+                "relationship--58b374bc-b6cb-4054-bf68-0f022c98a1f5",
+                "relationship--5e0dd7b9-2b7f-45ca-a3f9-eb23d6e9703b",
+                "relationship--5ff3b549-acf6-4cdc-a3b5-82dbdeec2152",
+                "relationship--6c0184c4-0ee9-4245-861e-46692284aab3",
+                "relationship--7416cf4a-21e4-45c3-8345-9282f21fb121",
+                "relationship--8115806f-9d56-486c-ba8e-ee41fef12cbe",
+                "relationship--87096abc-a775-403b-9fac-39fc93e6f293",
+                "relationship--892928ed-2751-46ef-9663-67a560ad2e41",
+                "relationship--8f0b1421-2b43-465a-804f-098f6d9d4321",
+                "relationship--907fefaa-8532-4800-8d7e-4d7f733532d9",
+                "relationship--922663ae-d82b-44bc-be77-083a2c670b81",
+                "relationship--97ebc81b-c762-4bb9-a331-7555fb733972",
+                "relationship--a0bb94b7-3395-4430-8e11-530fd1583cf7",
+                "relationship--a156ee32-738c-4ef5-a246-4d6ed418fc18",
+                "relationship--a3547e35-c314-4719-9dfe-123d98f1546b",
+                "relationship--a5d77d43-306f-4627-ba45-fb1f97b2f42a",
+                "relationship--a64ed83d-3661-4fb5-b200-31679b5f0d66",
+                "relationship--a6586673-6898-4c2d-9d13-1a1377aebf2d",
+                "relationship--b1e2d65a-6e5a-47df-84a2-b0c5570d4ada",
+                "relationship--bb39adb6-d87c-488e-bc2a-7a76166ea0a7",
+                "relationship--bc34cd27-c1bc-4cb6-9e09-6c7ea7e1af86",
+                "relationship--c2f57e16-ed8f-4f9e-91c3-e7ed41177fae",
+                "relationship--c8025734-9dcb-4ab3-bb6a-aeb85802de62",
+                "relationship--d471e35c-5e94-49f0-a7f4-156bc2c6de77",
+                "relationship--d64646ab-318b-478f-8940-28eacf42a10a",
+                "relationship--dd478c45-7368-4521-a5b4-9bc6a160008d",
+                "relationship--e2a54699-353e-4aa3-ab8f-90cfe0e7647b",
+                "relationship--e3a856df-b1e9-4a8a-8531-56d2a4b018a1",
+                "relationship--e84f26b4-346e-4252-b3ec-7eaf7a92db7c",
+                "relationship--eb9856dd-c220-4d56-b264-da2c9b74342c"
+            ]
+        },
+        {
+            "id": "attack-pattern--6b7c5e62-971a-50c7-838a-80e849a2ed66",
+            "spec_version": "2.1",
+            "revoked": false,
+            "confidence": 50,
+            "created": "2023-10-18T08:27:48.200Z",
+            "modified": "2023-10-26T18:47:09.918Z",
+            "name": "TA0042",
+            "x_mitre_id": "TA0042",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/TA0042",
+                    "external_id": "TA0042"
+                }
+            ],
+            "x_opencti_id": "dc319ba6-6742-4df1-8aee-163a58c41add",
+            "x_opencti_type": "Attack-Pattern",
+            "type": "attack-pattern",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "id": "attack-pattern--83916d68-7b2a-5d78-a429-5bb79013a70d",
+            "spec_version": "2.1",
+            "revoked": false,
+            "confidence": 50,
+            "created": "2023-10-18T08:24:18.072Z",
+            "modified": "2023-10-26T10:09:41.058Z",
+            "name": "TA0037",
+            "x_mitre_id": "TA0037",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/TA0037",
+                    "external_id": "TA0037"
+                }
+            ],
+            "x_opencti_id": "dd21b1a4-9275-4316-bffc-fc1eef42d645",
+            "x_opencti_type": "Attack-Pattern",
+            "type": "attack-pattern",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "type": "marking-definition",
+            "spec_version": "2.1",
+            "id": "marking-definition--34098fce-860f-48ae-8e50-ebd3cc5e41da",
+            "created": "2017-01-20T00:00:00.000Z",
+            "definition_type": "tlp",
+            "name": "TLP:GREEN",
+            "definition": {
+                "tlp": "green"
+            }
+        },
+        {
+            "id": "attack-pattern--993fbee2-ca5c-5768-aec7-07d91d292f45",
+            "spec_version": "2.1",
+            "revoked": false,
+            "confidence": 50,
+            "created": "2023-10-18T08:28:23.158Z",
+            "modified": "2023-10-26T23:51:20.022Z",
+            "name": "TA0043",
+            "x_mitre_id": "TA0043",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/TA0043",
+                    "external_id": "TA0043"
+                }
+            ],
+            "x_opencti_id": "f330b0d0-cd5b-48bf-b4e7-b7d1ddbbecad",
+            "x_opencti_type": "Attack-Pattern",
+            "type": "attack-pattern",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--34098fce-860f-48ae-8e50-ebd3cc5e41da"
+            ]
+        },
+        {
+            "id": "attack-pattern--da5d3be8-58b7-5f3b-9253-f93d44eaf0f0",
+            "spec_version": "2.1",
+            "revoked": false,
+            "confidence": 50,
+            "created": "2023-10-18T08:27:39.480Z",
+            "modified": "2023-10-26T18:38:59.554Z",
+            "name": "TA0030",
+            "x_mitre_id": "TA0030",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/TA0030",
+                    "external_id": "TA0030"
+                }
+            ],
+            "x_opencti_id": "b1bb9981-0d6b-425b-9929-9d826fd0d6a6",
+            "x_opencti_type": "Attack-Pattern",
+            "type": "attack-pattern",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "id": "attack-pattern--ec43290b-5d63-5851-8a61-684fa856316f",
+            "spec_version": "2.1",
+            "revoked": false,
+            "confidence": 50,
+            "created": "2023-10-18T08:27:48.412Z",
+            "modified": "2023-10-26T18:47:25.786Z",
+            "name": "TA0031",
+            "x_mitre_id": "TA0031",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/TA0031",
+                    "external_id": "TA0031"
+                }
+            ],
+            "x_opencti_id": "82d96311-58c9-4bba-a2cb-ff879c73424b",
+            "x_opencti_type": "Attack-Pattern",
+            "type": "attack-pattern",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "id": "attack-pattern--fc18ea50-e338-52c8-a01c-26529e41d9d0",
+            "spec_version": "2.1",
+            "revoked": false,
+            "confidence": 50,
+            "created": "2023-10-18T08:27:26.396Z",
+            "modified": "2023-10-26T18:17:59.636Z",
+            "name": "TA0040",
+            "x_mitre_id": "TA0040",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/TA0040",
+                    "external_id": "TA0040"
+                }
+            ],
+            "x_opencti_id": "9a421b16-eb43-4cf6-9ec4-324c02804d26",
+            "x_opencti_type": "Attack-Pattern",
+            "type": "attack-pattern",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "id": "identity--f11b0831-e7e6-5214-9431-ccf054e53e94",
+            "spec_version": "2.1",
+            "identity_class": "organization",
+            "name": "The MITRE Corporation",
+            "created": "2017-06-01T00:00:00.000Z",
+            "modified": "2023-10-18T02:35:53.447Z",
+            "x_opencti_id": "2b293de2-215d-44ae-aa6a-d758a3d98861",
+            "x_opencti_type": "Organization",
+            "type": "identity"
+        },
+        {
+            "type": "marking-definition",
+            "spec_version": "2.1",
+            "id": "marking-definition--c4099854-e00c-5dbc-b0fe-4c9909920101",
+            "created": "2017-06-01T00:00:00.000Z",
+            "definition_type": "statement",
+            "name": "Copyright 2015-2023, The MITRE Corporation. MITRE ATT&CK and ATT&CK are registered trademarks of The MITRE Corporation.",
+            "definition": {
+                "statement": "copyright 2015-2023, the mitre corporation. mitre att&ck and att&ck are registered trademarks of the mitre corporation."
+            }
+        },
+        {
+            "id": "attack-pattern--fc3e024a-8a0c-599c-90dc-2ac36b766041",
+            "spec_version": "2.1",
+            "revoked": false,
+            "confidence": 80,
+            "created": "2017-05-31T21:30:45.139Z",
+            "modified": "2023-10-20T01:41:01.986Z",
+            "name": "System Network Connections Discovery",
+            "description": "Adversaries may attempt to get a listing of network connections to or from the compromised system they are currently accessing or from remote systems by querying for information over the network. \n\nAn adversary who gains access to a system that is part of a cloud-based environment may map out Virtual Private Clouds or Virtual Networks in order to determine what systems and services are connected. The actions performed are likely the same types of discovery techniques depending on the operating system, but the resulting information may include details about the networked cloud environment relevant to the adversary's goals. Cloud providers may have different ways in which their virtual networks operate.(Citation: Amazon AWS VPC Guide)(Citation: Microsoft Azure Virtual Network Overview)(Citation: Google VPC Overview) Similarly, adversaries who gain access to network devices may also perform similar discovery activities to gather information about connected systems and services.\n\nUtilities and commands that acquire this information include [netstat](https://attack.mitre.org/software/S0104), \"net use,\" and \"net session\" with [Net](https://attack.mitre.org/software/S0039). In Mac and Linux, [netstat](https://attack.mitre.org/software/S0104) and `lsof` can be used to list current connections. `who -a` and `w` can be used to show which users are currently logged in, similar to \"net session\". Additionally, built-in features native to network devices and [Network Device CLI](https://attack.mitre.org/techniques/T1059/008) may be used (e.g. `show ip sockets`, `show tcp brief`).(Citation: US-CERT-TA18-106A)",
+            "x_mitre_platforms": [
+                "windows",
+                "linux",
+                "macos",
+                "IaaS"
+            ],
+            "x_mitre_detection": "System and network discovery techniques normally occur throughout an operation as an adversary learns the environment. Data and events should not be viewed in isolation, but as part of a chain of behavior that could lead to other activities, such as Lateral Movement, based on the information obtained.\n\nMonitor processes and command-line arguments for actions that could be taken to gather system and network information. Remote access tools with built-in features may interact directly with the Windows API to gather information. Further, [Network Device CLI](https://attack.mitre.org/techniques/T1059/008) commands may also be used to gather system and network information with built-in features native to the network device platform.  Monitor CLI activity for unexpected or unauthorized use commands being run by non-standard users from non-standard locations. Information may also be acquired through Windows system management tools such as [Windows Management Instrumentation](https://attack.mitre.org/techniques/T1047) and [PowerShell](https://attack.mitre.org/techniques/T1059/001).",
+            "x_mitre_id": "T1049",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "mitre-attack",
+                    "phase_name": "discovery",
+                    "x_opencti_order": 0
+                }
+            ],
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1049",
+                    "external_id": "T1049"
+                },
+                {
+                    "source_name": "Microsoft Azure Virtual Network Overview",
+                    "description": "Annamalai, N., Casey, C., Almeida, M., et. al.. (2019, June 18). What is Azure Virtual Network?. Retrieved October 6, 2019.",
+                    "url": "https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview"
+                },
+                {
+                    "source_name": "Google VPC Overview",
+                    "description": "Google. (2019, September 23). Virtual Private Cloud (VPC) network overview. Retrieved October 6, 2019.",
+                    "url": "https://cloud.google.com/vpc/docs/vpc"
+                },
+                {
+                    "source_name": "US-CERT-TA18-106A",
+                    "description": "US-CERT. (2018, April 20). Alert (TA18-106A) Russian State-Sponsored Cyber Actors Targeting Network Infrastructure Devices. Retrieved October 19, 2020.",
+                    "url": "https://www.us-cert.gov/ncas/alerts/TA18-106A"
+                },
+                {
+                    "source_name": "Amazon AWS VPC Guide",
+                    "description": "Amazon. (n.d.). What Is Amazon VPC?. Retrieved October 6, 2019.",
+                    "url": "https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html"
+                }
+            ],
+            "x_opencti_id": "c08ccfcd-7024-4253-9a56-582480f0715d",
+            "x_opencti_type": "Attack-Pattern",
+            "type": "attack-pattern",
+            "created_by_ref": "identity--f11b0831-e7e6-5214-9431-ccf054e53e94",
+            "object_marking_refs": [
+                "marking-definition--c4099854-e00c-5dbc-b0fe-4c9909920101",
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "id": "attack-pattern--fdb56b99-aa1d-5b2b-a5bb-8e502ca4a51c",
+            "spec_version": "2.1",
+            "revoked": false,
+            "confidence": 50,
+            "created": "2023-10-18T08:27:44.937Z",
+            "modified": "2023-10-26T18:42:43.152Z",
+            "name": "TA0028",
+            "x_mitre_id": "TA0028",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/TA0028",
+                    "external_id": "TA0028"
+                }
+            ],
+            "x_opencti_id": "ba609f76-6a39-49c7-bf41-5ccc4b5208ce",
+            "x_opencti_type": "Attack-Pattern",
+            "type": "attack-pattern",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "id": "file--06f5ea2a-d7f5-5b62-b94c-9c111eabfc07",
+            "spec_version": "2.1",
+            "x_opencti_score": 50,
+            "hashes": {
+                "SHA-256": "6d6db580b0f7853421c7523f7a2f4696d98f9251d950466e9c070e51817f48f7"
+            },
+            "x_opencti_id": "fe34c204-68af-465e-9bcd-95ad49c990d6",
+            "x_opencti_type": "StixFile",
+            "type": "file",
+            "x_opencti_created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "x_opencti_labels": [
+                "password scanning",
+                "linux",
+                "botnet",
+                "ddos",
+                "mirai"
+            ],
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "id": "file--3dab285a-651c-522b-a39f-853949da7e83",
+            "spec_version": "2.1",
+            "x_opencti_score": 50,
+            "hashes": {
+                "SHA-256": "aec3902a4053400bda84c2ca4cf677b51d332304e2e895f6f77733e8d05a2e50"
+            },
+            "x_opencti_id": "5e50cea8-95b4-49d5-bcb8-14eefe9bf08e",
+            "x_opencti_type": "StixFile",
+            "type": "file",
+            "x_opencti_created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "x_opencti_labels": [
+                "botnet",
+                "ddos",
+                "password scanning",
+                "linux",
+                "mirai"
+            ],
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "id": "file--789ee4cc-84ab-53a3-adba-0488d41ac30d",
+            "spec_version": "2.1",
+            "x_opencti_score": 50,
+            "hashes": {
+                "SHA-256": "14089ffd01f6b565f66bfe9e9a708e4376865c6c4407a1f4d16d50198a0bb8e3"
+            },
+            "x_opencti_id": "6e4dda2d-79cd-4290-b80f-de768bc87e4f",
+            "x_opencti_type": "StixFile",
+            "type": "file",
+            "x_opencti_created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "x_opencti_labels": [
+                "linux",
+                "password scanning",
+                "mirai",
+                "botnet",
+                "ddos"
+            ],
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "id": "file--7d7fe7e7-09c2-54a0-b233-ee6a99d1babb",
+            "spec_version": "2.1",
+            "x_opencti_score": 50,
+            "hashes": {
+                "SHA-256": "18056b7692fdce7544fd0b6abc8710790e72af1d7aa9e15262bfe1586984728a"
+            },
+            "x_opencti_id": "8cfa63f9-a1c4-4d3a-ae67-dfcd31e97c21",
+            "x_opencti_type": "StixFile",
+            "type": "file",
+            "x_opencti_created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "x_opencti_labels": [
+                "mirai",
+                "botnet",
+                "password scanning",
+                "ddos",
+                "linux"
+            ],
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "id": "file--bc39a7dc-9a52-5f39-a557-f23d81939845",
+            "spec_version": "2.1",
+            "x_opencti_score": 50,
+            "hashes": {
+                "SHA-256": "9423952bc91a33fdb8358e5999b337a6e4540c7f8d60fe31d1814e05ea87ade3"
+            },
+            "x_opencti_id": "26246e92-661a-44ca-ab43-8a830bfd8d58",
+            "x_opencti_type": "StixFile",
+            "type": "file",
+            "x_opencti_created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "x_opencti_labels": [
+                "ddos",
+                "password scanning",
+                "mirai",
+                "botnet",
+                "linux"
+            ],
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "id": "file--c71f4807-495f-593c-9e9e-e1fa8b561ef0",
+            "spec_version": "2.1",
+            "x_opencti_score": 50,
+            "hashes": {
+                "SHA-256": "4bfd26e84606606d6c95109b0cbb4ff3ce85fa18490f7098592c0fc80fb61f50"
+            },
+            "x_opencti_id": "d4b3e53f-b260-4036-a34e-a5c8552f8f48",
+            "x_opencti_type": "StixFile",
+            "type": "file",
+            "x_opencti_created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "x_opencti_labels": [
+                "password scanning",
+                "ddos",
+                "linux",
+                "botnet",
+                "mirai"
+            ],
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "id": "file--e2a34a36-37d8-5520-ae7b-90ac7252653b",
+            "spec_version": "2.1",
+            "x_opencti_score": 50,
+            "hashes": {
+                "SHA-256": "63dc18c621333b2a2f81424702a03be4c1342a1618e16f9c0a1ef81e8cf0f02a"
+            },
+            "x_opencti_id": "c0f72205-e298-4dc5-aac2-28d37e107f28",
+            "x_opencti_type": "StixFile",
+            "type": "file",
+            "x_opencti_created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "x_opencti_labels": [
+                "password scanning",
+                "botnet",
+                "ddos",
+                "linux",
+                "mirai"
+            ],
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "id": "file--e2dbe652-6a54-5187-9323-65f43718cbb2",
+            "spec_version": "2.1",
+            "x_opencti_score": 50,
+            "hashes": {
+                "SHA-256": "c8d2fc7fd2d8d76156617806d52887487547e5ba03a5ea2577a45a45eeeeb290"
+            },
+            "x_opencti_id": "34d88efe-278a-4922-9637-8dc42712db54",
+            "x_opencti_type": "StixFile",
+            "type": "file",
+            "x_opencti_created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "x_opencti_labels": [
+                "linux",
+                "botnet",
+                "mirai",
+                "ddos",
+                "password scanning"
+            ],
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "id": "hostname--ba67b22d-db45-5650-b5b7-7f9b5c449068",
+            "spec_version": "2.1",
+            "x_opencti_score": 50,
+            "value": "boats.dogmuncher.xyz",
+            "x_opencti_id": "d7617f8e-7a20-4acb-bad4-6995888ee793",
+            "x_opencti_type": "Hostname",
+            "type": "hostname",
+            "x_opencti_created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "x_opencti_labels": [
+                "botnet",
+                "ddos",
+                "password scanning",
+                "mirai",
+                "linux"
+            ],
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "id": "indicator--003f5386-0701-58a3-9365-6e2784b9ba0b",
+            "spec_version": "2.1",
+            "revoked": false,
+            "confidence": 50,
+            "created": "2024-01-12T23:38:48.895Z",
+            "modified": "2024-01-12T23:38:53.684Z",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "pattern": "[file:hashes.'SHA-256' = '14089ffd01f6b565f66bfe9e9a708e4376865c6c4407a1f4d16d50198a0bb8e3']",
+            "name": "14089ffd01f6b565f66bfe9e9a708e4376865c6c4407a1f4d16d50198a0bb8e3",
+            "description": "Gafgyt\nSHA256 of a06b5be74af6d4a8bb534dce0e4d8960",
+            "valid_from": "2024-01-12T23:18:16.000Z",
+            "valid_until": "2025-01-11T23:18:16.000Z",
+            "x_opencti_score": 50,
+            "x_opencti_detection": false,
+            "x_opencti_main_observable_type": "StixFile",
+            "labels": [
+                "botnet",
+                "password scanning",
+                "mirai",
+                "ddos",
+                "linux"
+            ],
+            "x_opencti_id": "4e1e952e-1feb-46bd-951a-b4dabd28b064",
+            "x_opencti_type": "Indicator",
+            "type": "indicator",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "id": "indicator--33593dc2-cd60-5d93-8511-cd1002c6bcb1",
+            "spec_version": "2.1",
+            "revoked": false,
+            "confidence": 50,
+            "created": "2024-01-12T23:38:48.913Z",
+            "modified": "2024-01-12T23:38:54.792Z",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "pattern": "[hostname:value = 'boats.dogmuncher.xyz']",
+            "name": "boats.dogmuncher.xyz",
+            "valid_from": "2024-01-12T23:18:16.000Z",
+            "valid_until": "2025-01-11T23:18:16.000Z",
+            "x_opencti_score": 50,
+            "x_opencti_detection": false,
+            "x_opencti_main_observable_type": "Hostname",
+            "labels": [
+                "botnet",
+                "linux",
+                "ddos",
+                "password scanning",
+                "mirai"
+            ],
+            "x_opencti_id": "36f4636f-9ecb-4340-b8bc-9a5433a534b6",
+            "x_opencti_type": "Indicator",
+            "type": "indicator",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "id": "indicator--3fcef48a-7ece-5d34-8ebe-366145948987",
+            "spec_version": "2.1",
+            "revoked": false,
+            "confidence": 50,
+            "created": "2024-01-12T23:38:48.906Z",
+            "modified": "2024-01-12T23:38:54.351Z",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "pattern": "[file:hashes.'SHA-256' = '9423952bc91a33fdb8358e5999b337a6e4540c7f8d60fe31d1814e05ea87ade3']",
+            "name": "9423952bc91a33fdb8358e5999b337a6e4540c7f8d60fe31d1814e05ea87ade3",
+            "description": "Unix.Trojan.Mirai-9970440-0\nSHA256 of 6c9b401f6fb9d1d3bd4dcfd93b45f0f8",
+            "valid_from": "2024-01-12T23:18:16.000Z",
+            "valid_until": "2025-01-11T23:18:16.000Z",
+            "x_opencti_score": 50,
+            "x_opencti_detection": false,
+            "x_opencti_main_observable_type": "StixFile",
+            "labels": [
+                "botnet",
+                "ddos",
+                "linux",
+                "mirai",
+                "password scanning"
+            ],
+            "x_opencti_id": "e5f25b66-6c51-426a-9f9d-2ba54a299082",
+            "x_opencti_type": "Indicator",
+            "type": "indicator",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "id": "indicator--43e28de1-5718-5728-995e-3397400ce4e6",
+            "spec_version": "2.1",
+            "revoked": false,
+            "confidence": 50,
+            "created": "2024-01-12T23:38:48.901Z",
+            "modified": "2024-01-12T23:38:54.067Z",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "pattern": "[file:hashes.'SHA-256' = '4bfd26e84606606d6c95109b0cbb4ff3ce85fa18490f7098592c0fc80fb61f50']",
+            "name": "4bfd26e84606606d6c95109b0cbb4ff3ce85fa18490f7098592c0fc80fb61f50",
+            "description": "Unix.Trojan.Mirai-9970440-0\nSHA256 of dbb63b126b96d69b4e974b0c4d8abf19",
+            "valid_from": "2024-01-12T23:18:16.000Z",
+            "valid_until": "2025-01-11T23:18:16.000Z",
+            "x_opencti_score": 50,
+            "x_opencti_detection": false,
+            "x_opencti_main_observable_type": "StixFile",
+            "labels": [
+                "ddos",
+                "linux",
+                "botnet",
+                "password scanning",
+                "mirai"
+            ],
+            "x_opencti_id": "688930ee-e1ef-462e-b1e7-9b00efc1abf6",
+            "x_opencti_type": "Indicator",
+            "type": "indicator",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "id": "indicator--5148650d-dcae-5572-a60a-7460604f60fb",
+            "spec_version": "2.1",
+            "revoked": false,
+            "confidence": 50,
+            "created": "2024-01-12T23:38:48.898Z",
+            "modified": "2024-01-12T23:38:53.889Z",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "pattern": "[file:hashes.'SHA-256' = '18056b7692fdce7544fd0b6abc8710790e72af1d7aa9e15262bfe1586984728a']",
+            "name": "18056b7692fdce7544fd0b6abc8710790e72af1d7aa9e15262bfe1586984728a",
+            "description": "Unix.Trojan.Mirai-9970440-0\nSHA256 of a4f59da4725333e671b7257f8c7d5146",
+            "valid_from": "2024-01-12T23:18:16.000Z",
+            "valid_until": "2025-01-11T23:18:16.000Z",
+            "x_opencti_score": 50,
+            "x_opencti_detection": false,
+            "x_opencti_main_observable_type": "StixFile",
+            "labels": [
+                "password scanning",
+                "ddos",
+                "mirai",
+                "linux",
+                "botnet"
+            ],
+            "x_opencti_id": "0ffe3970-c018-4401-9470-0bccfc3525e5",
+            "x_opencti_type": "Indicator",
+            "type": "indicator",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "id": "indicator--6402f3b7-e3dc-5297-abef-62beedbdc04a",
+            "spec_version": "2.1",
+            "revoked": false,
+            "confidence": 50,
+            "created": "2024-01-12T23:38:48.910Z",
+            "modified": "2024-01-12T23:38:54.571Z",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "pattern": "[file:hashes.'SHA-256' = 'c8d2fc7fd2d8d76156617806d52887487547e5ba03a5ea2577a45a45eeeeb290']",
+            "name": "c8d2fc7fd2d8d76156617806d52887487547e5ba03a5ea2577a45a45eeeeb290",
+            "description": "Unix.Trojan.Mirai-9970440-0\nSHA256 of 1c2940d4f116a329147fc80c590b8817",
+            "valid_from": "2024-01-12T23:18:16.000Z",
+            "valid_until": "2025-01-11T23:18:16.000Z",
+            "x_opencti_score": 50,
+            "x_opencti_detection": false,
+            "x_opencti_main_observable_type": "StixFile",
+            "labels": [
+                "botnet",
+                "mirai",
+                "linux",
+                "password scanning",
+                "ddos"
+            ],
+            "x_opencti_id": "d027b872-6011-4ce9-a421-cd83dcbb363d",
+            "x_opencti_type": "Indicator",
+            "type": "indicator",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "id": "indicator--780819bd-a031-5058-aeb1-b534ffaec71e",
+            "spec_version": "2.1",
+            "revoked": false,
+            "confidence": 50,
+            "created": "2024-01-12T23:38:48.908Z",
+            "modified": "2024-01-12T23:38:54.479Z",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "pattern": "[file:hashes.'SHA-256' = 'aec3902a4053400bda84c2ca4cf677b51d332304e2e895f6f77733e8d05a2e50']",
+            "name": "aec3902a4053400bda84c2ca4cf677b51d332304e2e895f6f77733e8d05a2e50",
+            "description": "Unix.Dropper.Mirai-7135965-0\nSHA256 of 61de0f87aeee052d05c74024c974f393",
+            "valid_from": "2024-01-12T23:18:16.000Z",
+            "valid_until": "2025-01-11T23:18:16.000Z",
+            "x_opencti_score": 50,
+            "x_opencti_detection": false,
+            "x_opencti_main_observable_type": "StixFile",
+            "labels": [
+                "ddos",
+                "password scanning",
+                "mirai",
+                "botnet",
+                "linux"
+            ],
+            "x_opencti_id": "2c921c5b-7b65-4865-910f-5c1b157db28c",
+            "x_opencti_type": "Indicator",
+            "type": "indicator",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "id": "indicator--a942bb02-22f2-5e4a-8d48-d47848f74508",
+            "spec_version": "2.1",
+            "revoked": false,
+            "confidence": 50,
+            "created": "2024-01-12T23:38:48.903Z",
+            "modified": "2024-01-12T23:38:54.099Z",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "pattern": "[file:hashes.'SHA-256' = '63dc18c621333b2a2f81424702a03be4c1342a1618e16f9c0a1ef81e8cf0f02a']",
+            "name": "63dc18c621333b2a2f81424702a03be4c1342a1618e16f9c0a1ef81e8cf0f02a",
+            "description": "Unix.Dropper.Mirai-7135925-0\nSHA256 of 5f1c6b75883c1315fd8adf0a1b90f1d8",
+            "valid_from": "2024-01-12T23:18:16.000Z",
+            "valid_until": "2025-01-11T23:18:16.000Z",
+            "x_opencti_score": 50,
+            "x_opencti_detection": false,
+            "x_opencti_main_observable_type": "StixFile",
+            "labels": [
+                "botnet",
+                "ddos",
+                "linux",
+                "password scanning",
+                "mirai"
+            ],
+            "x_opencti_id": "86183ece-20ce-4d2d-a380-565e814b33a3",
+            "x_opencti_type": "Indicator",
+            "type": "indicator",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "id": "indicator--cac2807b-430b-5259-b874-ff14c6817205",
+            "spec_version": "2.1",
+            "revoked": false,
+            "confidence": 50,
+            "created": "2024-01-12T23:38:48.904Z",
+            "modified": "2024-01-12T23:38:54.185Z",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "pattern": "[file:hashes.'SHA-256' = '6d6db580b0f7853421c7523f7a2f4696d98f9251d950466e9c070e51817f48f7']",
+            "name": "6d6db580b0f7853421c7523f7a2f4696d98f9251d950466e9c070e51817f48f7",
+            "description": "Unix.Trojan.Mirai-9970440-0\nSHA256 of 8ffd26c19f4890863d0f969d04f38f5b",
+            "valid_from": "2024-01-12T23:18:16.000Z",
+            "valid_until": "2025-01-11T23:18:16.000Z",
+            "x_opencti_score": 50,
+            "x_opencti_detection": false,
+            "x_opencti_main_observable_type": "StixFile",
+            "labels": [
+                "password scanning",
+                "linux",
+                "mirai",
+                "ddos",
+                "botnet"
+            ],
+            "x_opencti_id": "b3a43c82-d841-419b-a332-0bea2d169dcd",
+            "x_opencti_type": "Indicator",
+            "type": "indicator",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "id": "indicator--d1f89080-1099-5f55-aa35-8204b677b18d",
+            "spec_version": "2.1",
+            "revoked": false,
+            "confidence": 50,
+            "created": "2024-01-12T23:38:48.912Z",
+            "modified": "2024-01-12T23:38:54.652Z",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "pattern": "[ipv4-addr:value = '89.190.156.145']",
+            "name": "89.190.156.145",
+            "description": "CC=NL ASN=AS49870 Alsycon B.V.",
+            "valid_from": "2024-01-12T23:18:16.000Z",
+            "valid_until": "2024-02-11T23:18:16.000Z",
+            "x_opencti_score": 50,
+            "x_opencti_detection": false,
+            "x_opencti_main_observable_type": "IPv4-Addr",
+            "labels": [
+                "ddos",
+                "password scanning",
+                "mirai",
+                "linux",
+                "botnet"
+            ],
+            "x_opencti_id": "af7b5f9c-d2b4-4af1-9cdd-fa39d8578091",
+            "x_opencti_type": "Indicator",
+            "type": "indicator",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "id": "ipv4-addr--71d5674d-903b-5abc-b436-7fd66694bdb4",
+            "spec_version": "2.1",
+            "x_opencti_score": 50,
+            "value": "89.190.156.145",
+            "x_opencti_id": "1726bba7-d09b-4ed8-ab6f-ef5d897ea0e5",
+            "x_opencti_type": "IPv4-Addr",
+            "type": "ipv4-addr",
+            "x_opencti_created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "x_opencti_labels": [
+                "ddos",
+                "password scanning",
+                "linux",
+                "mirai",
+                "botnet"
+            ],
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "id": "malware--2df61a44-6e40-552a-a1e8-bbd9a7b81833",
+            "spec_version": "2.1",
+            "revoked": false,
+            "confidence": 50,
+            "created": "2023-10-18T08:06:07.929Z",
+            "modified": "2024-01-03T16:32:03.244Z",
+            "name": "Mirai",
+            "is_family": false,
+            "x_opencti_id": "9be4b3a9-cdcf-4369-ac3c-247e31c3380b",
+            "x_opencti_type": "Malware",
+            "type": "malware",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "id": "malware--7451fc92-0c10-526d-b710-c9bedc2b2634",
+            "spec_version": "2.1",
+            "revoked": false,
+            "confidence": 50,
+            "created": "2023-10-18T08:18:50.389Z",
+            "modified": "2024-01-13T21:09:21.534Z",
+            "name": "linux",
+            "is_family": false,
+            "x_opencti_id": "c0abe511-a37f-4831-bd44-d5dbe71ca330",
+            "x_opencti_type": "Malware",
+            "type": "malware",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ]
+        },
+        {
+            "id": "relationship--02a52ed0-787e-43e3-ae8a-ab7fb8a40a6f",
+            "spec_version": "2.1",
+            "relationship_type": "indicates",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.915Z",
+            "modified": "2024-01-12T23:39:01.272Z",
+            "x_opencti_id": "5d997414-572d-4894-82a8-37fce1ced70b",
+            "x_opencti_type": "indicates",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "indicator--43e28de1-5718-5728-995e-3397400ce4e6",
+            "target_ref": "malware--7451fc92-0c10-526d-b710-c9bedc2b2634"
+        },
+        {
+            "id": "relationship--10c670ba-ca14-4205-9426-30249ae6e5ce",
+            "spec_version": "2.1",
+            "relationship_type": "based-on",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.902Z",
+            "modified": "2024-01-12T23:38:59.443Z",
+            "x_opencti_id": "f4516f02-6423-4783-b5a2-3f5990f63dd0",
+            "x_opencti_type": "based-on",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "indicator--43e28de1-5718-5728-995e-3397400ce4e6",
+            "target_ref": "file--c71f4807-495f-593c-9e9e-e1fa8b561ef0"
+        },
+        {
+            "id": "relationship--118472e5-c237-4f4a-9568-a0e1751c60d2",
+            "spec_version": "2.1",
+            "relationship_type": "indicates",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.916Z",
+            "modified": "2024-01-12T23:39:01.535Z",
+            "x_opencti_id": "16406bf1-9a42-49be-bd42-68bf9005fa99",
+            "x_opencti_type": "indicates",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "indicator--cac2807b-430b-5259-b874-ff14c6817205",
+            "target_ref": "malware--2df61a44-6e40-552a-a1e8-bbd9a7b81833"
+        },
+        {
+            "id": "relationship--19a648e2-8a8d-4d40-894d-75ced56b4fad",
+            "spec_version": "2.1",
+            "relationship_type": "uses",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.892Z",
+            "modified": "2024-01-12T23:38:57.832Z",
+            "x_opencti_id": "6cde3aea-dc39-4702-b8dc-841c5694e9d4",
+            "x_opencti_type": "uses",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "malware--7451fc92-0c10-526d-b710-c9bedc2b2634",
+            "target_ref": "attack-pattern--da5d3be8-58b7-5f3b-9253-f93d44eaf0f0"
+        },
+        {
+            "id": "relationship--1a382c02-faff-42ce-a0ad-8150603bc19f",
+            "spec_version": "2.1",
+            "relationship_type": "indicates",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.917Z",
+            "modified": "2024-01-12T23:39:02.735Z",
+            "x_opencti_id": "532c2c85-5969-43d6-b6a9-9fdf384e096b",
+            "x_opencti_type": "indicates",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "indicator--d1f89080-1099-5f55-aa35-8204b677b18d",
+            "target_ref": "malware--7451fc92-0c10-526d-b710-c9bedc2b2634"
+        },
+        {
+            "id": "relationship--26e1d76c-3a0d-4a70-a9d0-85fda0d9693c",
+            "spec_version": "2.1",
+            "relationship_type": "uses",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.893Z",
+            "modified": "2024-01-12T23:38:58.310Z",
+            "x_opencti_id": "be29c3a5-fac1-49ec-854c-4bcff2796c5d",
+            "x_opencti_type": "uses",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "malware--7451fc92-0c10-526d-b710-c9bedc2b2634",
+            "target_ref": "attack-pattern--fc3e024a-8a0c-599c-90dc-2ac36b766041"
+        },
+        {
+            "id": "relationship--34659e24-e691-4dbe-9e7a-81f5e8de902e",
+            "spec_version": "2.1",
+            "relationship_type": "uses",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.891Z",
+            "modified": "2024-01-12T23:38:59.236Z",
+            "x_opencti_id": "ad56f953-a871-4094-a80b-2657e4d1c1ab",
+            "x_opencti_type": "uses",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "malware--7451fc92-0c10-526d-b710-c9bedc2b2634",
+            "target_ref": "attack-pattern--fdb56b99-aa1d-5b2b-a5bb-8e502ca4a51c"
+        },
+        {
+            "id": "relationship--3c85ddfc-c93b-408f-9f8a-da307960bd44",
+            "spec_version": "2.1",
+            "relationship_type": "based-on",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.904Z",
+            "modified": "2024-01-12T23:38:59.692Z",
+            "x_opencti_id": "971b91b8-0827-4d20-b4f5-f4e165340bf0",
+            "x_opencti_type": "based-on",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "indicator--a942bb02-22f2-5e4a-8d48-d47848f74508",
+            "target_ref": "file--e2a34a36-37d8-5520-ae7b-90ac7252653b"
+        },
+        {
+            "id": "relationship--3f26abf6-c89c-471f-bf73-b19405797b2d",
+            "spec_version": "2.1",
+            "relationship_type": "based-on",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.912Z",
+            "modified": "2024-01-12T23:39:00.342Z",
+            "x_opencti_id": "9874f3fc-0847-49a3-aa55-6cbb884d5b1a",
+            "x_opencti_type": "based-on",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "indicator--d1f89080-1099-5f55-aa35-8204b677b18d",
+            "target_ref": "ipv4-addr--71d5674d-903b-5abc-b436-7fd66694bdb4"
+        },
+        {
+            "id": "relationship--49e9e764-742d-431d-8cec-8f5e84a21c87",
+            "spec_version": "2.1",
+            "relationship_type": "indicates",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.917Z",
+            "modified": "2024-01-12T23:39:02.331Z",
+            "x_opencti_id": "54347b76-9895-4963-be9d-f7c83b873065",
+            "x_opencti_type": "indicates",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "indicator--6402f3b7-e3dc-5297-abef-62beedbdc04a",
+            "target_ref": "malware--2df61a44-6e40-552a-a1e8-bbd9a7b81833"
+        },
+        {
+            "id": "relationship--530edf4d-cf59-4e43-9944-9c467964c168",
+            "spec_version": "2.1",
+            "relationship_type": "indicates",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.915Z",
+            "modified": "2024-01-12T23:39:01.645Z",
+            "x_opencti_id": "bbebacd9-9698-4cb9-b20c-c42bfbd10244",
+            "x_opencti_type": "indicates",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "indicator--a942bb02-22f2-5e4a-8d48-d47848f74508",
+            "target_ref": "malware--7451fc92-0c10-526d-b710-c9bedc2b2634"
+        },
+        {
+            "id": "relationship--54f7541a-1aa4-408f-a5f4-713007d4d995",
+            "spec_version": "2.1",
+            "relationship_type": "indicates",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.916Z",
+            "modified": "2024-01-12T23:39:01.724Z",
+            "x_opencti_id": "2eaacb2d-28b7-4856-99ad-73c592d54fba",
+            "x_opencti_type": "indicates",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "indicator--3fcef48a-7ece-5d34-8ebe-366145948987",
+            "target_ref": "malware--2df61a44-6e40-552a-a1e8-bbd9a7b81833"
+        },
+        {
+            "id": "relationship--55f30d02-ee1a-462b-abdd-734c5a1041e0",
+            "spec_version": "2.1",
+            "relationship_type": "indicates",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.916Z",
+            "modified": "2024-01-12T23:39:01.952Z",
+            "x_opencti_id": "f5130fd6-bdde-4eb1-bffb-3b4364f01918",
+            "x_opencti_type": "indicates",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "indicator--cac2807b-430b-5259-b874-ff14c6817205",
+            "target_ref": "malware--7451fc92-0c10-526d-b710-c9bedc2b2634"
+        },
+        {
+            "id": "relationship--55f99f98-2e0c-4efc-ad42-6bd866e78db9",
+            "spec_version": "2.1",
+            "relationship_type": "uses",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.894Z",
+            "modified": "2024-01-12T23:38:58.895Z",
+            "x_opencti_id": "56b7fefa-4e8c-416e-aed0-6cba303dd6be",
+            "x_opencti_type": "uses",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "malware--7451fc92-0c10-526d-b710-c9bedc2b2634",
+            "target_ref": "attack-pattern--fc18ea50-e338-52c8-a01c-26529e41d9d0"
+        },
+        {
+            "id": "relationship--563ac573-406e-403a-a734-1203a7865ace",
+            "spec_version": "2.1",
+            "relationship_type": "indicates",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.917Z",
+            "modified": "2024-01-12T23:39:02.415Z",
+            "x_opencti_id": "caa082a3-701c-4f42-87dd-e9d649f55209",
+            "x_opencti_type": "indicates",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "indicator--780819bd-a031-5058-aeb1-b534ffaec71e",
+            "target_ref": "malware--7451fc92-0c10-526d-b710-c9bedc2b2634"
+        },
+        {
+            "id": "relationship--569df627-8a49-4c2f-8162-ebbb9aae1a3f",
+            "spec_version": "2.1",
+            "relationship_type": "based-on",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.900Z",
+            "modified": "2024-01-12T23:38:59.280Z",
+            "x_opencti_id": "ab8a5ddc-211f-4aa1-8352-ebab4a09c108",
+            "x_opencti_type": "based-on",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "indicator--5148650d-dcae-5572-a60a-7460604f60fb",
+            "target_ref": "file--7d7fe7e7-09c2-54a0-b233-ee6a99d1babb"
+        },
+        {
+            "id": "relationship--58b374bc-b6cb-4054-bf68-0f022c98a1f5",
+            "spec_version": "2.1",
+            "relationship_type": "uses",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.885Z",
+            "modified": "2024-01-12T23:38:56.480Z",
+            "x_opencti_id": "fa06a19e-8767-4395-9cac-3ad552b864c9",
+            "x_opencti_type": "uses",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "malware--2df61a44-6e40-552a-a1e8-bbd9a7b81833",
+            "target_ref": "attack-pattern--993fbee2-ca5c-5768-aec7-07d91d292f45"
+        },
+        {
+            "id": "relationship--5e0dd7b9-2b7f-45ca-a3f9-eb23d6e9703b",
+            "spec_version": "2.1",
+            "relationship_type": "uses",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.886Z",
+            "modified": "2024-01-12T23:38:55.028Z",
+            "x_opencti_id": "3200e1ee-eb12-4e79-bb29-628175d12502",
+            "x_opencti_type": "uses",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "malware--2df61a44-6e40-552a-a1e8-bbd9a7b81833",
+            "target_ref": "attack-pattern--6b7c5e62-971a-50c7-838a-80e849a2ed66"
+        },
+        {
+            "id": "relationship--5ff3b549-acf6-4cdc-a3b5-82dbdeec2152",
+            "spec_version": "2.1",
+            "relationship_type": "uses",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.891Z",
+            "modified": "2024-01-12T23:38:57.353Z",
+            "x_opencti_id": "54207c1a-7893-4816-9a62-6177c2bb129d",
+            "x_opencti_type": "uses",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "malware--7451fc92-0c10-526d-b710-c9bedc2b2634",
+            "target_ref": "attack-pattern--6b7c5e62-971a-50c7-838a-80e849a2ed66"
+        },
+        {
+            "id": "relationship--6c0184c4-0ee9-4245-861e-46692284aab3",
+            "spec_version": "2.1",
+            "relationship_type": "indicates",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.917Z",
+            "modified": "2024-01-12T23:39:02.682Z",
+            "x_opencti_id": "e2aea91a-484a-433d-9438-8b2bb2bcc174",
+            "x_opencti_type": "indicates",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "indicator--6402f3b7-e3dc-5297-abef-62beedbdc04a",
+            "target_ref": "malware--7451fc92-0c10-526d-b710-c9bedc2b2634"
+        },
+        {
+            "id": "relationship--7416cf4a-21e4-45c3-8345-9282f21fb121",
+            "spec_version": "2.1",
+            "relationship_type": "uses",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2023-10-18T08:16:33.801Z",
+            "modified": "2023-10-25T09:20:32.623Z",
+            "x_opencti_id": "5c6a39d6-98fb-4ef8-af1f-d7675cf0e721",
+            "x_opencti_type": "uses",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "malware--2df61a44-6e40-552a-a1e8-bbd9a7b81833",
+            "target_ref": "attack-pattern--fc3e024a-8a0c-599c-90dc-2ac36b766041"
+        },
+        {
+            "id": "relationship--8115806f-9d56-486c-ba8e-ee41fef12cbe",
+            "spec_version": "2.1",
+            "relationship_type": "based-on",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.911Z",
+            "modified": "2024-01-12T23:39:00.068Z",
+            "x_opencti_id": "194beb45-f4fc-42c1-bc7c-b147389d593e",
+            "x_opencti_type": "based-on",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "indicator--6402f3b7-e3dc-5297-abef-62beedbdc04a",
+            "target_ref": "file--e2dbe652-6a54-5187-9323-65f43718cbb2"
+        },
+        {
+            "id": "relationship--87096abc-a775-403b-9fac-39fc93e6f293",
+            "spec_version": "2.1",
+            "relationship_type": "indicates",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.918Z",
+            "modified": "2024-01-12T23:39:03.144Z",
+            "x_opencti_id": "93190478-03d1-4bc4-bfff-9fb5d1578cb2",
+            "x_opencti_type": "indicates",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "indicator--33593dc2-cd60-5d93-8511-cd1002c6bcb1",
+            "target_ref": "malware--7451fc92-0c10-526d-b710-c9bedc2b2634"
+        },
+        {
+            "id": "relationship--892928ed-2751-46ef-9663-67a560ad2e41",
+            "spec_version": "2.1",
+            "relationship_type": "uses",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.893Z",
+            "modified": "2024-01-12T23:38:59.488Z",
+            "x_opencti_id": "ac58b4e9-ee0b-476c-8871-18b631b7c1af",
+            "x_opencti_type": "uses",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "malware--7451fc92-0c10-526d-b710-c9bedc2b2634",
+            "target_ref": "attack-pattern--83916d68-7b2a-5d78-a429-5bb79013a70d"
+        },
+        {
+            "id": "relationship--8f0b1421-2b43-465a-804f-098f6d9d4321",
+            "spec_version": "2.1",
+            "relationship_type": "based-on",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.907Z",
+            "modified": "2024-01-12T23:38:59.885Z",
+            "x_opencti_id": "aa8e9d41-06c9-4c30-91b7-bd32ecacaf8c",
+            "x_opencti_type": "based-on",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "indicator--3fcef48a-7ece-5d34-8ebe-366145948987",
+            "target_ref": "file--bc39a7dc-9a52-5f39-a557-f23d81939845"
+        },
+        {
+            "id": "relationship--907fefaa-8532-4800-8d7e-4d7f733532d9",
+            "spec_version": "2.1",
+            "relationship_type": "indicates",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.914Z",
+            "modified": "2024-01-12T23:39:00.813Z",
+            "x_opencti_id": "3f6fa1ba-b054-4bb8-8eab-5b907b60a09d",
+            "x_opencti_type": "indicates",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "indicator--5148650d-dcae-5572-a60a-7460604f60fb",
+            "target_ref": "malware--2df61a44-6e40-552a-a1e8-bbd9a7b81833"
+        },
+        {
+            "id": "relationship--922663ae-d82b-44bc-be77-083a2c670b81",
+            "spec_version": "2.1",
+            "relationship_type": "indicates",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.914Z",
+            "modified": "2024-01-12T23:39:00.863Z",
+            "x_opencti_id": "23f5624d-2174-466a-b99d-75521aeefafe",
+            "x_opencti_type": "indicates",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "indicator--003f5386-0701-58a3-9365-6e2784b9ba0b",
+            "target_ref": "malware--7451fc92-0c10-526d-b710-c9bedc2b2634"
+        },
+        {
+            "id": "relationship--97ebc81b-c762-4bb9-a331-7555fb733972",
+            "spec_version": "2.1",
+            "relationship_type": "based-on",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.897Z",
+            "modified": "2024-01-12T23:38:59.026Z",
+            "x_opencti_id": "b9067141-f6ed-4352-a4fd-f2ec2419cf78",
+            "x_opencti_type": "based-on",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "indicator--003f5386-0701-58a3-9365-6e2784b9ba0b",
+            "target_ref": "file--789ee4cc-84ab-53a3-adba-0488d41ac30d"
+        },
+        {
+            "id": "relationship--a0bb94b7-3395-4430-8e11-530fd1583cf7",
+            "spec_version": "2.1",
+            "relationship_type": "uses",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.890Z",
+            "modified": "2024-01-12T23:38:57.392Z",
+            "x_opencti_id": "078aed3f-0005-4c1b-b3a3-1fa61be0ee41",
+            "x_opencti_type": "uses",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "malware--2df61a44-6e40-552a-a1e8-bbd9a7b81833",
+            "target_ref": "attack-pattern--fc18ea50-e338-52c8-a01c-26529e41d9d0"
+        },
+        {
+            "id": "relationship--a156ee32-738c-4ef5-a246-4d6ed418fc18",
+            "spec_version": "2.1",
+            "relationship_type": "uses",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.886Z",
+            "modified": "2024-01-12T23:38:55.440Z",
+            "x_opencti_id": "d963ca0a-bac5-469b-ab7f-abd95eaad183",
+            "x_opencti_type": "uses",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "malware--2df61a44-6e40-552a-a1e8-bbd9a7b81833",
+            "target_ref": "attack-pattern--fdb56b99-aa1d-5b2b-a5bb-8e502ca4a51c"
+        },
+        {
+            "id": "relationship--a3547e35-c314-4719-9dfe-123d98f1546b",
+            "spec_version": "2.1",
+            "relationship_type": "uses",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2023-10-18T08:27:44.552Z",
+            "modified": "2023-10-26T18:42:14.816Z",
+            "x_opencti_id": "6e8073ae-ba62-4f15-9cfd-7e071e14927e",
+            "x_opencti_type": "uses",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "malware--2df61a44-6e40-552a-a1e8-bbd9a7b81833",
+            "target_ref": "attack-pattern--83916d68-7b2a-5d78-a429-5bb79013a70d"
+        },
+        {
+            "id": "relationship--a5d77d43-306f-4627-ba45-fb1f97b2f42a",
+            "spec_version": "2.1",
+            "relationship_type": "indicates",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.916Z",
+            "modified": "2024-01-12T23:39:02.289Z",
+            "x_opencti_id": "55d1bb68-ffe6-4bc3-9dfd-0430211af404",
+            "x_opencti_type": "indicates",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "indicator--3fcef48a-7ece-5d34-8ebe-366145948987",
+            "target_ref": "malware--7451fc92-0c10-526d-b710-c9bedc2b2634"
+        },
+        {
+            "id": "relationship--a64ed83d-3661-4fb5-b200-31679b5f0d66",
+            "spec_version": "2.1",
+            "relationship_type": "indicates",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.914Z",
+            "modified": "2024-01-12T23:39:00.426Z",
+            "x_opencti_id": "410f6ae4-015c-4e2f-8162-a11be16f729f",
+            "x_opencti_type": "indicates",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "indicator--003f5386-0701-58a3-9365-6e2784b9ba0b",
+            "target_ref": "malware--2df61a44-6e40-552a-a1e8-bbd9a7b81833"
+        },
+        {
+            "id": "relationship--a6586673-6898-4c2d-9d13-1a1377aebf2d",
+            "spec_version": "2.1",
+            "relationship_type": "indicates",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.915Z",
+            "modified": "2024-01-12T23:39:00.924Z",
+            "x_opencti_id": "0e9afffd-3f53-414b-bfa4-c6c46b004143",
+            "x_opencti_type": "indicates",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "indicator--43e28de1-5718-5728-995e-3397400ce4e6",
+            "target_ref": "malware--2df61a44-6e40-552a-a1e8-bbd9a7b81833"
+        },
+        {
+            "id": "relationship--b1e2d65a-6e5a-47df-84a2-b0c5570d4ada",
+            "spec_version": "2.1",
+            "relationship_type": "based-on",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.906Z",
+            "modified": "2024-01-12T23:38:59.721Z",
+            "x_opencti_id": "1ed41e7c-af4d-40a2-96b4-24b57f27a9f8",
+            "x_opencti_type": "based-on",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "indicator--cac2807b-430b-5259-b874-ff14c6817205",
+            "target_ref": "file--06f5ea2a-d7f5-5b62-b94c-9c111eabfc07"
+        },
+        {
+            "id": "relationship--bb39adb6-d87c-488e-bc2a-7a76166ea0a7",
+            "spec_version": "2.1",
+            "relationship_type": "based-on",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.914Z",
+            "modified": "2024-01-12T23:39:00.382Z",
+            "x_opencti_id": "48345720-da96-4358-83f4-2b34de0d9107",
+            "x_opencti_type": "based-on",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "indicator--33593dc2-cd60-5d93-8511-cd1002c6bcb1",
+            "target_ref": "hostname--ba67b22d-db45-5650-b5b7-7f9b5c449068"
+        },
+        {
+            "id": "relationship--bc34cd27-c1bc-4cb6-9e09-6c7ea7e1af86",
+            "spec_version": "2.1",
+            "relationship_type": "indicates",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.915Z",
+            "modified": "2024-01-12T23:39:01.313Z",
+            "x_opencti_id": "f4be09b2-e59a-497f-a4b1-01610941ffbf",
+            "x_opencti_type": "indicates",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "indicator--a942bb02-22f2-5e4a-8d48-d47848f74508",
+            "target_ref": "malware--2df61a44-6e40-552a-a1e8-bbd9a7b81833"
+        },
+        {
+            "id": "relationship--c2f57e16-ed8f-4f9e-91c3-e7ed41177fae",
+            "spec_version": "2.1",
+            "relationship_type": "indicates",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.917Z",
+            "modified": "2024-01-12T23:39:03.287Z",
+            "x_opencti_id": "9c5dac0b-839c-4f10-abdc-67897b3f2bcd",
+            "x_opencti_type": "indicates",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "indicator--d1f89080-1099-5f55-aa35-8204b677b18d",
+            "target_ref": "malware--2df61a44-6e40-552a-a1e8-bbd9a7b81833"
+        },
+        {
+            "id": "relationship--c8025734-9dcb-4ab3-bb6a-aeb85802de62",
+            "spec_version": "2.1",
+            "relationship_type": "uses",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.887Z",
+            "modified": "2024-01-12T23:38:55.829Z",
+            "x_opencti_id": "9cd1993c-1700-47ac-8d43-45711f0d820f",
+            "x_opencti_type": "uses",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "malware--2df61a44-6e40-552a-a1e8-bbd9a7b81833",
+            "target_ref": "attack-pattern--da5d3be8-58b7-5f3b-9253-f93d44eaf0f0"
+        },
+        {
+            "id": "relationship--d471e35c-5e94-49f0-a7f4-156bc2c6de77",
+            "spec_version": "2.1",
+            "relationship_type": "uses",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.892Z",
+            "modified": "2024-01-12T23:38:58.639Z",
+            "x_opencti_id": "047112f6-7fec-49b7-b54c-15b4f3bd1cf4",
+            "x_opencti_type": "uses",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "malware--7451fc92-0c10-526d-b710-c9bedc2b2634",
+            "target_ref": "attack-pattern--ec43290b-5d63-5851-8a61-684fa856316f"
+        },
+        {
+            "id": "relationship--d64646ab-318b-478f-8940-28eacf42a10a",
+            "spec_version": "2.1",
+            "relationship_type": "indicates",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.916Z",
+            "modified": "2024-01-12T23:39:02.073Z",
+            "x_opencti_id": "1e769715-06d6-4a81-b35a-66ef485efb18",
+            "x_opencti_type": "indicates",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "indicator--780819bd-a031-5058-aeb1-b534ffaec71e",
+            "target_ref": "malware--2df61a44-6e40-552a-a1e8-bbd9a7b81833"
+        },
+        {
+            "id": "relationship--dd478c45-7368-4521-a5b4-9bc6a160008d",
+            "spec_version": "2.1",
+            "relationship_type": "indicates",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.918Z",
+            "modified": "2024-01-12T23:39:02.869Z",
+            "x_opencti_id": "0847f811-7d9e-4050-a49e-de81510217e5",
+            "x_opencti_type": "indicates",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "indicator--33593dc2-cd60-5d93-8511-cd1002c6bcb1",
+            "target_ref": "malware--2df61a44-6e40-552a-a1e8-bbd9a7b81833"
+        },
+        {
+            "id": "relationship--e2a54699-353e-4aa3-ab8f-90cfe0e7647b",
+            "spec_version": "2.1",
+            "relationship_type": "based-on",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.909Z",
+            "modified": "2024-01-12T23:38:59.929Z",
+            "x_opencti_id": "3764ddc9-1801-4b7f-99ac-92d5335d5c3f",
+            "x_opencti_type": "based-on",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "indicator--780819bd-a031-5058-aeb1-b534ffaec71e",
+            "target_ref": "file--3dab285a-651c-522b-a39f-853949da7e83"
+        },
+        {
+            "id": "relationship--e3a856df-b1e9-4a8a-8531-56d2a4b018a1",
+            "spec_version": "2.1",
+            "relationship_type": "indicates",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.914Z",
+            "modified": "2024-01-12T23:39:01.136Z",
+            "x_opencti_id": "b704431f-cdb1-4a44-a5a9-28455591b57c",
+            "x_opencti_type": "indicates",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "indicator--5148650d-dcae-5572-a60a-7460604f60fb",
+            "target_ref": "malware--7451fc92-0c10-526d-b710-c9bedc2b2634"
+        },
+        {
+            "id": "relationship--e84f26b4-346e-4252-b3ec-7eaf7a92db7c",
+            "spec_version": "2.1",
+            "relationship_type": "uses",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.890Z",
+            "modified": "2024-01-12T23:38:56.971Z",
+            "x_opencti_id": "e6ec5eaa-b661-48f5-8502-2cb7bf6bc54a",
+            "x_opencti_type": "uses",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "malware--7451fc92-0c10-526d-b710-c9bedc2b2634",
+            "target_ref": "attack-pattern--993fbee2-ca5c-5768-aec7-07d91d292f45"
+        },
+        {
+            "id": "relationship--eb9856dd-c220-4d56-b264-da2c9b74342c",
+            "spec_version": "2.1",
+            "relationship_type": "uses",
+            "revoked": false,
+            "confidence": 50,
+            "lang": "en",
+            "created": "2024-01-12T23:38:48.888Z",
+            "modified": "2024-01-12T23:38:56.857Z",
+            "x_opencti_id": "b489cf84-fda9-42fc-a910-746ac9d6cc12",
+            "x_opencti_type": "uses",
+            "type": "relationship",
+            "created_by_ref": "identity--e52b2fa3-2af0-5e53-ad38-17d54b3d61cb",
+            "object_marking_refs": [
+                "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9"
+            ],
+            "source_ref": "malware--2df61a44-6e40-552a-a1e8-bbd9a7b81833",
+            "target_ref": "attack-pattern--ec43290b-5d63-5851-8a61-684fa856316f"
+        }
+    ]
+}
