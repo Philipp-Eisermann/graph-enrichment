@@ -3,8 +3,9 @@ import requests
 
 from py2neo.matching import *
 
-from chaining.py import create_relation
+from chaining import create_relation
 
+from py2neo import Graph, Node, Relationship
 
 import json
 
@@ -80,7 +81,6 @@ def query_nvd_cpe(cpe_id):
 def find_vulnerabilities(inventory):
     # First, we generate the list of CVEs that are linked to each
     # component of our inventory
-    #inventory_cpe_ids = ["cpe:2.3:a:microsoft:internet_explorer:8.0.6001:beta:*:*:*:*:*:*"]
     linked_cves = [] # each object should be unique!
     ids_set = set()
     # Get the inventory list of cpes
@@ -108,35 +108,6 @@ def find_vulnerabilities(inventory):
     print(f"{len(ids_set)} meet the vulnerability conditions ")
     return ids_set
 
-# Inventory is a list of CPEs that form the device inventory
-# cpe is a cpe id which was extracted from "criteria" in a 
-# configuration node's "cpeMAtch" attribute
-def match_cpe_criteria(inventory, cpe):
-    global graph
-    # ! This function assumes that there are only * after the first *
-    # TODO: what about the "?"
-    for item in inventory:
-        star_index = cpe.find("*")
-        if star_index != -1:
-            cpe = cpe[:star_index]
-        if item.startswith(cpe):
-
-            return True
-    return False
-    
-    
-def match_node(inventory, node):
-    if node["operator"] == "OR":
-        for cpe_match in node["cpeMatch"]:
-            if match_cpe_criteria(inventory, cpe_match["criteria"]):
-                return True
-        return False
-    else: # AND opertator
-        for cpe_match in node["cpeMatch"]:
-            if not match_cpe_criteria(inventory, cpe_match["criteria"]):
-                return False
-        return True
-
 
 # Inventory is a list list of CPEs in the form of strings
 # CVE_object is in json format
@@ -151,50 +122,80 @@ def is_vulnerable_to(cve_object, inventory):
     for configuration in configurations: 
         # Every configuration has a list of nodes (possibly len 1)
         matched_nodes = [match_node(inventory, n) for n in configuration["nodes"]]
+        # TODO: check negate
         if "operator" not in configuration.keys() or configuration["operator"] == "OR":
-            return any(matched_nodes)
+            if any(matched_nodes):
+                link_items_to_cve(cve_object['cve']['id'])
+                return True
+            #return any(matched_nodes)
         elif configuration["operator"] == "AND":
-            return all(matched_nodes)
-          
+            if all(matched_nodes):
+                link_items_to_cve(cve_object['cve']['id'])
+                return True
+            else: return False
 
-# Takes an integer being a CWE ID
-# Returns a dictionary for all related weaknesses organised by relationship type
-# Is a helper funciton of chain_cwe
-def extract_cwe_related_weaknesses(cwe_id, db):
-    id_dict = {"ChildOf": [], "StartsWith": [], "CanPrecede": [], "CanFollow": [], "RequiredBy": [], "Requires": [], "PeerOf": [], "CanAlsoBe": []}
-    try: 
-        related_weaknesses_string = db.get(cwe_id).related_weaknesses
-        elements = related_weaknesses_string.split("::")
 
-        for element in elements:
-            parts = element.split(":")
-            if len(parts) >= 3 and parts[0] == "NATURE":
-                nature = parts[1]
-                cwe_index = parts.index("CWE ID")
-                cwe_id = parts[cwe_index + 1]
-                id_dict[nature].append(str(cwe_id)) # TODO: IS THIS GOOD?
-    except Exception as e:
-        print(f"Error extracting CWE-{cwe_id}: {e}")
-        return None
 
-    return id_dict
+def match_node(inventory, node):
+    if node["operator"] == "OR":
+        for cpe_match in node["cpeMatch"]:
+            # TODO: Check "vulnerable" 
+            if match_cpe_criteria(inventory, cpe_match["criteria"]):
+                # We stop looking after the first match. But other combinations
+                # of items in the inventory could also match, which will only
+                # appear after rerunning the script without the matched components
+                return True
+        return False
+    else: # AND opertator
+        for cpe_match in node["cpeMatch"]:
+            # TODO: Check "vulnerable"
+            if not match_cpe_criteria(inventory, cpe_match["criteria"]):
+                return False
+        return True
 
+
+# Inventory is a list of CPEs that form the device inventory
+# cpe is a cpe id which was extracted from "criteria" in a 
+# configuration node's "cpeMAtch" attribute
+def match_cpe_criteria(inventory, cpe):
+    global current_cpes
+    # ! This function assumes that there are only * after the first *
+    # TODO: Cover all possibilities
+    for item in inventory:
+        star_index = cpe.find("*")
+        if star_index != -1:
+            cpe = cpe[:star_index]
+        if item.startswith(cpe):
+            current_cpes.append(item)
+            return True
+    return False
+    
+           
+#graph, node_matcher, rel_matcher, node1, node2, rel_type
+def link_items_to_cve(cve):
+    global graph, node_matcher, relation_matcher, current_cpes
+    print("linked item")
+    for cpe in current_cpes:
+        create_relation(graph, node_matcher, relation_matcher, cpe, cve, "vulnerable_to")
+    current_cpes = []
+
+
+# UPLOAD CWE Chains to Neo4J server
+neo4j_uri = "bolt://localhost:7687"  # NEO4J URI
+neo4j_user = "phil"        # NEO4J USERNAME
+neo4j_password = "adminphil"    # NEO4J PASSWORD
+
+# GLOBAL VARS
+graph = Graph(neo4j_uri, auth=(neo4j_user, neo4j_password))
+node_matcher = NodeMatcher(graph)
+relation_matcher = RelationshipMatcher(graph)
+
+# ! if threaded extension: each thread needs its own current_cpes var
+# This global array stores the CPEs that are involved 
+current_cpes = []
 
 
 if __name__ == "__main__":
-    '''
-    # UPLOAD CWE Chains to Neo4J server
-    neo4j_uri = "bolt://localhost:7687"  # NEO4J URI
-    neo4j_user = "phil"        # NEO4J USERNAME
-    neo4j_password = "adminphil"    # NEO4J PASSWORD
-
-    graph = Graph(neo4j_uri, auth=(neo4j_user, neo4j_password))
-
-    db = Database()
-    
-    
-
-    '''
     config_obj = [{"operator":"AND","nodes":
 	[{"operator":"OR","negate":False,"cpeMatch":
 		[{"vulnerable":True,"criteria":"cpe:2.3:a:microsoft:internet_explorer:8:*:*:*:*:*:*:*","matchCriteriaId":"A52E757F-9B41-43B4-9D67-3FEDACA71283"},
