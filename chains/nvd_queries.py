@@ -380,82 +380,16 @@ def config_example():
     router1 = Node(id="router1")
     create_relation(graph, node_matcher, relation_matcher, router1, host1, "subnet1")
     create_relation(graph, node_matcher, relation_matcher, router1, host2, "subnet1")
-    #create_relation(graph, node_matcher, relation_matcher, router1, host3, "subnet2")
+    create_relation(graph, node_matcher, relation_matcher, router1, host3, "subnet2")
 
 if __name__ == "__main__":
-    config_obj = [{"operator":"AND","nodes":
-	[{"operator":"OR","negate":False,"cpeMatch":
-		[{"vulnerable":True,"criteria":"cpe:2.3:a:microsoft:internet_explorer:8:*:*:*:*:*:*:*","matchCriteriaId":"A52E757F-9B41-43B4-9D67-3FEDACA71283"},
-		{"vulnerable":True,"criteria":"cpe:2.3:a:microsoft:internet_explorer:8.0.6001:*:*:*:*:*:*:*","matchCriteriaId":"5F709B61-F64B-4E8F-80BB-4944485B6125"}
-		]
-	},
-	{"operator":"OR","negate":False,"cpeMatch":
-		[{"vulnerable":True,"criteria":"cpe:2.3:o:microsoft:windows_7:-:*:*:*:*:*:*:*","matchCriteriaId":"E33796DB-4523-4F04-B564-ADF030553D51"},
-		{"vulnerable":True,"criteria":"cpe:2.3:o:microsoft:windows_server_2003:*:sp2:*:*:*:*:*:*","matchCriteriaId":"4D3B5E4F-56A6-4696-BBB4-19DF3613D020"},
-		{"vulnerable":True,"criteria":"cpe:2.3:o:microsoft:windows_server_2008:*:sp2:x32:*:*:*:*:*","matchCriteriaId":"B8A32637-65EC-42C4-A892-0E599562527C"},
-		{"vulnerable":True,"criteria":"cpe:2.3:o:microsoft:windows_xp:-:sp2:x64:*:*:*:*:*","matchCriteriaId":"FFAC3F90-77BF-4F56-A89B-8A3D2D1FC6D6"}
-		]
-	}]
-},
-{"operator":"AND","nodes":
-	[{"operator":"OR","negate":False,"cpeMatch":
-		[{"vulnerable":True,"criteria":"cpe:2.3:a:microsoft:internet_explorer:7:*:*:*:*:*:*:*","matchCriteriaId":"1A33FA7F-BB2A-4C66-B608-72997A2BD1DB"},
-		{"vulnerable":True,"criteria":"cpe:2.3:a:microsoft:internet_explorer:7.0:*:*:*:*:*:*:*","matchCriteriaId":"6BC71FD8-D385-4507-BD14-B75FDD4C79E6"},
-		{"vulnerable":True,"criteria":"cpe:2.3:a:microsoft:internet_explorer:7.00.6000.16441:*:*:*:*:*:*:*","matchCriteriaId":"53D75496-8594-44DB-B5C4-EA3CABD6551A"}
-		]
-	},
-	{"operator":"OR","negate":False,"cpeMatch":
-		[{"vulnerable":True,"criteria":"cpe:2.3:o:microsoft:windows_server_2003:*:sp2:*:*:*:*:*:*","matchCriteriaId":"4D3B5E4F-56A6-4696-BBB4-19DF3613D020"},
-		{"vulnerable":True,"criteria":"cpe:2.3:o:microsoft:windows_vista:*:sp2:*:*:*:*:*:*","matchCriteriaId":"0A0D2704-C058-420B-B368-372D1129E914"},
-		{"vulnerable":True,"criteria":"cpe:2.3:o:microsoft:windows_xp:-:sp2:x64:*:*:*:*:*","matchCriteriaId":"FFAC3F90-77BF-4F56-A89B-8A3D2D1FC6D6"}
-		]
-	}]
-},
-{"nodes":
-	[{"operator":"OR","negate":False,"cpeMatch":
-		[{"vulnerable":True,"criteria":"cpe:2.3:a:microsoft:internet_explorer:5.01:sp4:*:*:*:*:*:*","matchCriteriaId":"F3F2A51E-2675-4993-B9C2-F2D176A92857"},
-		{"vulnerable":True,"criteria":"cpe:2.3:a:microsoft:internet_explorer:6:*:*:*:*:*:*:*","matchCriteriaId":"693D3C1C-E3E4-49DB-9A13-44ADDFF82507"},
-		{"vulnerable":True,"criteria":"cpe:2.3:a:microsoft:internet_explorer:6:sp1:*:*:*:*:*:*","matchCriteriaId":"D47247A3-7CD7-4D67-9D9B-A94A504DA1BE"}
-		]
-	}]
-},
-{"nodes":
-	[{"operator":"OR","negate":False,"cpeMatch":
-		[{"vulnerable":True,"criteria":"cpe:2.3:o:microsoft:windows_2000:*:sp4:*:*:*:*:*:*","matchCriteriaId":"83E7C4A0-78CF-4B56-82BF-EC932BDD8ADF"},
-		{"vulnerable":True,"criteria":"cpe:2.3:o:microsoft:windows_2003_server:*:sp2:*:*:*:*:*:*","matchCriteriaId":"2978BF86-5A1A-438E-B81F-F360D0E30C9C"},
-		{"vulnerable":True,"criteria":"cpe:2.3:o:microsoft:windows_xp:-:sp2:x64:*:*:*:*:*","matchCriteriaId":"FFAC3F90-77BF-4F56-A89B-8A3D2D1FC6D6"}
-		]
-	}]
-}]
     
-    cve_obj = {'cve': {'id': 'CVE-2019-1010218', 'sourceIdentifier': 'josh@bress.net', 'published': '2019-07-22T18:15:10.917', 'lastModified': '2020-09-30T13:40:18.163', 'vulnStatus': 'Analyzed', 'descriptions': [{'lang': 'en', 'value': "Cherokee Webserver Latest Cherokee Web server Upto Version 1.2.103 (Current stable) is affected by: Buffer Overflow - CWE-120. The impact is: Crash. The component is: Main cherokee command. The attack vector is: Overwrite argv[0] to an insane length with execl. The fixed version is: There's no fix yet."}, {'lang': 'es', 'value': 'El servidor web de Cherokee más reciente de Cherokee Webserver Hasta Versión 1.2.103 (estable actual) está afectado por: Desbordamiento de Búfer - CWE-120. El impacto es: Bloqueo. El componente es: Comando cherokee principal. El vector de ataque es: Sobrescribir argv[0] en una longitud no sana con execl. La versión corregida es: no hay ninguna solución aún.'}], 'metrics': {'cvssMetricV31': [{'source': 'nvd@nist.gov', 'type': 'Primary', 'cvssData': {'version': '3.1', 'vectorString': 'CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H', 'attackVector': 'NETWORK', 'attackComplexity': 'LOW', 'privilegesRequired': 'NONE', 'userInteraction': 'NONE', 'scope': 'UNCHANGED', 'confidentialityImpact': 'NONE', 'integrityImpact': 'NONE', 'availabilityImpact': 'HIGH', 'baseScore': 7.5, 'baseSeverity': 'HIGH'}, 'exploitabilityScore': 3.9, 'impactScore': 3.6}], 'cvssMetricV2': [{'source': 'nvd@nist.gov', 'type': 'Primary', 'cvssData': {'version': '2.0', 'vectorString': 'AV:N/AC:L/Au:N/C:N/I:N/A:P', 'accessVector': 'NETWORK', 'accessComplexity': 'LOW', 'authentication': 'NONE', 'confidentialityImpact': 'NONE', 'integrityImpact': 'NONE', 'availabilityImpact': 'PARTIAL', 'baseScore': 5.0}, 'baseSeverity': 'MEDIUM', 'exploitabilityScore': 10.0, 'impactScore': 2.9, 'acInsufInfo': False, 'obtainAllPrivilege': False, 'obtainUserPrivilege': False, 'obtainOtherPrivilege': False, 'userInteractionRequired': False}]}, 'weaknesses': [{'source': 'nvd@nist.gov', 'type': 'Primary', 'description': [{'lang': 'en', 'value': 'CWE-787'}]}, {'source': 'josh@bress.net', 'type': 'Secondary', 'description': [{'lang': 'en', 'value': 'CWE-120'}]}], 'configurations': config_obj, 'references': [{'url': 'https://i.imgur.com/PWCCyir.png', 'source': 'josh@bress.net', 'tags': ['Exploit', 'Third Party Advisory']}]}}
-    node_obj = {"operator":"OR","negate":False,"cpeMatch":[{"vulnerable":True,"criteria":"cpe:2.3:a:microsoft:internet_explorer:5.01:sp4:*:*:*:*:*:*","matchCriteriaId":"F3F2A51E-2675-4993-B9C2-F2D176A92857"},{"vulnerable":True,"criteria":"cpe:2.3:a:microsoft:internet_explorer:6:*:*:*:*:*:*:*","matchCriteriaId":"693D3C1C-E3E4-49DB-9A13-44ADDFF82507"},{"vulnerable":True,"criteria":"cpe:2.3:a:microsoft:internet_explorer:6:sp1:*:*:*:*:*:*","matchCriteriaId":"D47247A3-7CD7-4D67-9D9B-A94A504DA1BE"}]}
-    cpe = "cpe:2.3:a:cherokee-project:cherokee_web_server:*:*:*:*:*:*:*:*"
-    
-    config_example()
-
-
-
-    #lol = get_connected_vulnerabilities(graph, node_matcher, "host1")[0]
-
-    #create_exploit_relation(graph, node_matcher, relation_matcher, "host1", "host2", lol)
-
-
-    #get_hosts_other_subnets(graph, "host3")
-
-    #draw_attack_paths("host2", 1)
-    #print(visited_nodes)
-    
-    #trg_list = list(node_matcher.match(id="host1"))
-    #src_list = list(node_matcher.match(id="host2"))
-    #relationship_instance = Relationship(src_list[0], "exploits", trg_list[0], id="host2-exploits(CVE-2005-2127)>host1", cve="CVE-2005-2127",
-    #                                     precondition=0,postcondition=1,
-    #                                     attackVector="N")
-    #graph.create(relationship_instance)
-
-    #print(get_connected_vulnerabilities(graph, node_matcher, "host2"))
-        
-    #print(get_pre_post_conditions(cve_obj["cve"]["metrics"]))
+    # This sets up an example environment with 3 hosts and 1 router
+    #config_example()
+    create_relation(graph, node_matcher, relation_matcher, router1, host3, "subnet2")
+    draw_attack_paths("host2", 1)
+    # When wanting to regenerate the AG starting from a different host, make
+    # sure to have deleted all exploits relationships:
 
     
 
