@@ -385,11 +385,12 @@ def config_example():
 if __name__ == "__main__":
     
     # This sets up an example environment with 3 hosts and 1 router
-    #config_example()
-    create_relation(graph, node_matcher, relation_matcher, router1, host3, "subnet2")
+    config_example()
+    
     draw_attack_paths("host2", 1)
     # When wanting to regenerate the AG starting from a different host, make
-    # sure to have deleted all exploits relationships:
+    # sure to have deleted all exploits relationships (starting with CVE):
+    # match ()-[r]->() where r.precondition IN [0,1,2] delete r
 
     
 
