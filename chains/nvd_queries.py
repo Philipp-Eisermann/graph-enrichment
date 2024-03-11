@@ -118,10 +118,10 @@ def is_vulnerable_to(cve_object, inventory):
     cve_to_pass = {'id': cve_object['cve']['id'], 'precondition': pre_post_conditions[0],
                    'accessVector': pre_post_conditions[1], 'postcondition': pre_post_conditions[2]}
     
-    for configuration in configurations: 
+    for configuration in configurations:     
         # Every configuration has a list of nodes (possibly len 1)
         matched_nodes = [match_node(inventory, n) for n in configuration["nodes"]]
-        # TODO: check negate
+        
         if "operator" not in configuration.keys() or configuration["operator"] == "OR":
             if any(matched_nodes):
                 link_items_to_cve(cve_to_pass)
@@ -136,9 +136,13 @@ def is_vulnerable_to(cve_object, inventory):
 
 # Helper function to matches a CPE definition
 def match_node(inventory, node):
+    if node["negate"] == True:
+            # All listed components are not vulnerable 
+            return False
     if node["operator"] == "OR":
         for cpe_match in node["cpeMatch"]:
-            # TODO: Check "vulnerable" 
+            if cpe_match["vulnerable"] == False:
+                continue
             if match_cpe_criteria(inventory, cpe_match["criteria"]):
                 # We stop looking after the first match. But other combinations
                 # of items in the inventory could also match, which will only
@@ -147,7 +151,8 @@ def match_node(inventory, node):
         return False
     else: # AND opertator
         for cpe_match in node["cpeMatch"]:
-            # TODO: Check "vulnerable"
+            if cpe_match["vulnerable"] == False:
+                continue
             if not match_cpe_criteria(inventory, cpe_match["criteria"]):
                 return False
         return True
@@ -330,7 +335,6 @@ def draw_attack_paths(start_node, privilege):
 
 
         
-
 # UPLOAD CWE Chains to Neo4J server
 neo4j_uri = "bolt://localhost:7687"  # NEO4J URI
 neo4j_user = "phil"        # NEO4J USERNAME
@@ -368,10 +372,10 @@ def config_example():
         create_relation(graph, node_matcher, relation_matcher, host2, Node(id=item), "has")
     find_vulnerabilities(inventory2)
 
-    #host3 = Node(id="host3")
-    #for item in inventory3:
-    #    create_relation(graph, node_matcher, relation_matcher, host3, Node(id=item), "has")
-    #find_vulnerabilities(inventory3)
+    host3 = Node(id="host3")
+    for item in inventory3:
+        create_relation(graph, node_matcher, relation_matcher, host3, Node(id=item), "has")
+    find_vulnerabilities(inventory3)
 
     router1 = Node(id="router1")
     create_relation(graph, node_matcher, relation_matcher, router1, host1, "subnet1")
@@ -428,7 +432,7 @@ if __name__ == "__main__":
     node_obj = {"operator":"OR","negate":False,"cpeMatch":[{"vulnerable":True,"criteria":"cpe:2.3:a:microsoft:internet_explorer:5.01:sp4:*:*:*:*:*:*","matchCriteriaId":"F3F2A51E-2675-4993-B9C2-F2D176A92857"},{"vulnerable":True,"criteria":"cpe:2.3:a:microsoft:internet_explorer:6:*:*:*:*:*:*:*","matchCriteriaId":"693D3C1C-E3E4-49DB-9A13-44ADDFF82507"},{"vulnerable":True,"criteria":"cpe:2.3:a:microsoft:internet_explorer:6:sp1:*:*:*:*:*:*","matchCriteriaId":"D47247A3-7CD7-4D67-9D9B-A94A504DA1BE"}]}
     cpe = "cpe:2.3:a:cherokee-project:cherokee_web_server:*:*:*:*:*:*:*:*"
     
-    #config_example()
+    config_example()
 
 
 
@@ -439,7 +443,7 @@ if __name__ == "__main__":
 
     #get_hosts_other_subnets(graph, "host3")
 
-    draw_attack_paths("host2", 1)
+    #draw_attack_paths("host2", 1)
     #print(visited_nodes)
     
     #trg_list = list(node_matcher.match(id="host1"))
