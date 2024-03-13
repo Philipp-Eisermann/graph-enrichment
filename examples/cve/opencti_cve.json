@@ -1,0 +1,138 @@
+{
+  'confidence': 15,
+  'created': '2022-08-18T04:32:21.000Z',
+  'createdBy': {
+    'id': '44fba35b-12b2-4511-8c4f-99a92170812a',
+    'standard_id': 'identity--3fd1ed93-897e-5d4c-8713-9a15a2a9070e',
+    'entity_type': 'Organization',
+    'parent_types': [
+      'Basic-Object',
+      'Stix-Object',
+      'Stix-Core-Object',
+      'Stix-Domain-Object',
+      'Identity'
+    ],
+    'spec_version': '2.1',
+    'identity_class': 'organization',
+    'name': 'Thales',
+    'description': None,
+    'roles': None,
+    'contact_information': None,
+    'x_opencti_aliases': None,
+    'created': '2021-02-24T08:28:09.397Z',
+    'modified': '2023-11-17T07:15:48.923Z',
+    'objectLabel': [],
+    'x_opencti_organization_type': None,
+    'x_opencti_reliability': None,
+    'objectLabelIds': []
+  },
+  'createdById': '44fba35b-12b2-4511-8c4f-99a92170812a',
+  'created_at': '2022-08-18T05:50:52.659Z',
+  'description': 'Some web servers under Microsoft Windows allow remote attackers to bypass\naccess restrictions for files with long file names.\n\n',
+  'entity_type': 'Vulnerability',
+  'externalReferences': [
+    {
+      'id': '819d4d85-c19d-448f-857b-f06e68da2179',
+      'standard_id': 'external-reference--fcd027e9-11e6-510a-8811-45730f2db387',
+      'entity_type': 'External-Reference',
+      'source_name': 'National Vulnerability Database',
+      'description': None,
+      'url': 'https://exchange.xforce.ibmcloud.com/vulnerabilities/CVE-1999-0012',
+      'hash': None,
+      'external_id': None,
+      'created': '2022-08-18T05:50:52.790Z',
+      'modified': '2022-08-18T05:50:52.790Z',
+      'importFiles': [],
+      'createdById': None,
+      'importFilesIds': []
+    }
+  ],
+  'externalReferencesIds': [
+    '819d4d85-c19d-448f-857b-f06e68da2179'
+  ],
+  'id': '51b68d34-3413-43f1-bd29-c80b5644dced',
+  'importFiles': [],
+  'importFilesIds': [],
+  'modified': '2022-08-18T05:50:53.630Z',
+  'name': 'CVE-1999-0012',
+  'objectLabel': [
+    {
+      'id': '2538534c-b318-400a-965d-d16a699dee53',
+      'value': 'microsoft',
+      'color': '#a4aed4',
+      'createdById': None
+    },
+    {
+      'id': '6c667c22-f0ec-40d7-bcb3-76150c849a92',
+      'value': 'enterprise server',
+      'color': '#a4aed4',
+      'createdById': None
+    },
+    {
+      'id': 'c5b85b2e-1146-4ec0-a1fa-7405aee8e96e',
+      'value': 'internet information server',
+      'color': '#a4aed4',
+      'createdById': None
+    },
+    {
+      'id': '0f2f31c7-dfac-439d-a99e-9ec3404a501a',
+      'value': 'fasttrack server',
+      'color': '#a4aed4',
+      'createdById': None
+    },
+    {
+      'id': 'e91e6e19-8fd5-49ce-b103-7627f0a26e6c',
+      'value': 'personal web server',
+      'color': '#a4aed4',
+      'createdById': None
+    },
+    {
+      'id': '6dc8562d-5806-4042-acdb-05a01636017c',
+      'value': 'frontpage',
+      'color': '#a4aed4',
+      'createdById': None
+    }
+  ],
+  'objectLabelIds': [
+    '2538534c-b318-400a-965d-d16a699dee53',
+    '6c667c22-f0ec-40d7-bcb3-76150c849a92',
+    'c5b85b2e-1146-4ec0-a1fa-7405aee8e96e',
+    '0f2f31c7-dfac-439d-a99e-9ec3404a501a',
+    'e91e6e19-8fd5-49ce-b103-7627f0a26e6c',
+    '6dc8562d-5806-4042-acdb-05a01636017c'
+  ],
+  'objectMarking': [
+    {
+      'id': '0897e9c6-0ca3-42e9-bb5e-45812918b419',
+      'standard_id': 'marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9',
+      'entity_type': 'Marking-Definition',
+      'definition_type': 'TLP',
+      'definition': 'TLP:CLEAR',
+      'created': '2021-02-22T16:48:46.948Z',
+      'modified': '2022-10-05T12:58:56.178Z',
+      'x_opencti_order': 1,
+      'x_opencti_color': '#ffffff',
+      'createdById': None
+    }
+  ],
+  'objectMarkingIds': [
+    '0897e9c6-0ca3-42e9-bb5e-45812918b419'
+  ],
+  'parent_types': [
+    'Basic-Object',
+    'Stix-Object',
+    'Stix-Core-Object',
+    'Stix-Domain-Object'
+  ],
+  'revoked': False,
+  'spec_version': '2.1',
+  'standard_id': 'vulnerability--87168880-202e-5bdc-ae1b-7db39a95e9ab',
+  'updated_at': '2022-08-18T05:50:53.630Z',
+  'x_opencti_aliases': None,
+  'x_opencti_attack_vector': None,
+  'x_opencti_availability_impact': None,
+  'x_opencti_base_score': None,
+  'x_opencti_base_severity': None,
+  'x_opencti_confidentiality_impact': None,
+  'x_opencti_integrity_impact': None
+}

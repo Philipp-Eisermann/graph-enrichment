@@ -1,12 +1,15 @@
 from py2neo import Node, Relationship
 
+from main import graph, node_matcher, relation_matcher
+
 
 # Takes either a str id or a dictionary
 # Following node types are defined for this network model:
 # host, router, cpe, cve
 def get_node_label(node):
     if isinstance(node, dict):
-        node = str(node["id"]).lower()
+        index = node['id'].find('--')
+        return str(node['id']).lower()[:index] if index != -1 else str(node['id']).lower()
     if node.startswith("host"):
         return "host"
     if node.startswith("router"):
@@ -15,13 +18,29 @@ def get_node_label(node):
         return node[:3]  # either CVE or CPE
 
 
+# Node can be either a name (for the label) or a dict
+def create_node(node):
+    from main import created_nodes
+    if isinstance(node, dict):
+        node_instance = Node(get_node_label(node), **node)
+        node_id = node["id"]
+    else:
+        node_instance = Node(get_node_label(node), id=node)
+        node_id = node
+
+    if node_id in created_nodes:
+        return
+    else:
+        graph.create(node_instance)
+
+
 # Checks if nodes and relation (node1->node2) already exists and only
 # adds to graph (node4j) what is lacking
 # node1, node2 are ids or dictionaries (need to have "id" field!) of nodes to be added
 # rel_type is a string holding the type of the relation
-def create_relation(graph, node_matcher, rel_matcher, node1, node2, rel_type):
+def create_relation(node1, node2, rel_type):
+    # TODO: Simplify - we can use created_nodes instead of node_matching
     from main import created_nodes
-
     if isinstance(node1, dict):
         node1_instance = Node(get_node_label(node1), **node1)
         src_list = list(node_matcher.match(id=node1["id"]))
@@ -39,7 +58,7 @@ def create_relation(graph, node_matcher, rel_matcher, node1, node2, rel_type):
         trg_list = list(node_matcher.match(id=node2))
         node2_id = node2
 
-    # Does the source node1 already exist?
+    # If the src node does not yet exist
     if len(src_list) == 0:
         graph.create(node1_instance)
         if isinstance(node1, dict):
@@ -47,7 +66,7 @@ def create_relation(graph, node_matcher, rel_matcher, node1, node2, rel_type):
         else:
             created_nodes += [node1]
 
-    # Does the target node2 already exist?
+    # If the trg node does not yet exist
     if len(trg_list) == 0:
         graph.create(node2_instance)
         if isinstance(node2, dict):
@@ -55,7 +74,7 @@ def create_relation(graph, node_matcher, rel_matcher, node1, node2, rel_type):
         else:
             created_nodes += [node2]
 
-            # Do src and target node exist, only once each?
+    # Do src and target node exist, only once each?
     if len(src_list) > 1 or len(trg_list) > 1:
         print(f"src_list: {src_list}, trg_list: {trg_list}")
         print("Warning: source and/or target nodes are not unique!")
@@ -63,7 +82,7 @@ def create_relation(graph, node_matcher, rel_matcher, node1, node2, rel_type):
 
     # Does the relationship already exist?
     rel_id = f"{node1_id}-{rel_type}>{node2_id}"
-    if len(list(rel_matcher.match(id=rel_id))) == 0:
+    if len(list(relation_matcher.match(id=rel_id))) == 0:
         if len(src_list) == 1:
             node1_instance = src_list[0]
         if len(trg_list) == 1:
@@ -77,7 +96,7 @@ def create_relation(graph, node_matcher, rel_matcher, node1, node2, rel_type):
 # host1 (src) and host2 (trg) can be ids or dicts, but have to be modelled
 # in the graph already! (done in the init step using create_relation())
 # exploited_cve is a dict
-def create_exploit_relation(graph, node_matcher, rel_matcher, host1, host2, exploited_cve):
+def create_exploit_relation(host1, host2, exploited_cve):
     if isinstance(host1, dict):
         src_list = list(node_matcher.match(id=host1["id"]))
         host1_id = host1["id"]
@@ -95,7 +114,7 @@ def create_exploit_relation(graph, node_matcher, rel_matcher, host1, host2, expl
     rel_id = f"{host1_id}-exploits({exploited_cve['id']})>{host2_id}"
 
     # Check if relation exists already
-    if not len(list(rel_matcher.match(id=rel_id))) == 0:
+    if not len(list(relation_matcher.match(id=rel_id))) == 0:
         return
 
     if len(src_list) != 1 or len(trg_list) != 1:
@@ -114,7 +133,7 @@ def create_exploit_relation(graph, node_matcher, rel_matcher, host1, host2, expl
 
 # Takes a host node id and returns a list of dictionaries
 # of all CVE Node() objects that are linked to it (via CPEs)
-def get_connected_vulnerabilities(graph, node_matcher, node_id):
+def get_connected_vulnerabilities(node_id):
     ret_cves = []
     node = node_matcher.match(id=node_id)
     if node:
@@ -135,7 +154,7 @@ def get_connected_vulnerabilities(graph, node_matcher, node_id):
 
 # Takes a host node id and returns a list of node ids of the
 # hosts that are reachable through layer 2
-def get_hosts_same_subnet(graph, node_id):
+def get_hosts_same_subnet(node_id):
     ret_nodes = []
 
     query = f"MATCH (source)-[r]->(target) WHERE source:router AND target.id = \"{node_id}\" RETURN source.id"
@@ -145,7 +164,6 @@ def get_hosts_same_subnet(graph, node_id):
     router = routers.evaluate()
 
     while router is not None:
-        print(router)
         # Query to get the subnet of the router
         query = f"MATCH (source)-[r]->(target) WHERE source.id = \"{str(router)}\" AND target.id = \"{node_id}\" RETURN type(r)"
         subnet = graph.run(query).evaluate()  # should be unique
@@ -158,13 +176,12 @@ def get_hosts_same_subnet(graph, node_id):
 
         router = routers.evaluate()
 
-    print(ret_nodes)
     return ret_nodes
 
 
 # Takes a host node id and returns a list of node ids of the
 # hosts that are reachable through layer 3
-def get_hosts_other_subnets(graph, node_id):
+def get_hosts_other_subnets(node_id):
     ret_nodes = []
 
     query = f"MATCH (source)-[r]->(target) WHERE source:router AND target.id = \"{node_id}\" RETURN source.id"

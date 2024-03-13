@@ -1,31 +1,30 @@
 from neo4j_backend import create_relation
 
-import main
-
 
 # graph is the Neo4j Graph object to which the chains should be added
 # db is the cwe2 Database Object to which the CWE ids queries are sent
-def simple_chains_to_neo4j(node_graph, n_matcher, r_matcher, db, ids):
+def simple_chains_to_neo4j(db, ids):
     # n_matcher = NodeMatcher(node_graph)
-    # r_matcher = RelationshipMatcher(node_graph)
-
+    # r_matcher = RelationshipMatcher(node_graph)$
+    from main import unextracted_cwes
+    
     for i in ids:
         extracted_weaknesses = extract_cwe_related_weaknesses(i, db)
 
         if not type(extracted_weaknesses) is dict:
-            main.unextracted_cwes += [i]
+            unextracted_cwes += [i]
             continue
 
         posteriors = extracted_weaknesses["CanPrecede"]
 
         for posterior in posteriors:
-            create_relation(node_graph, n_matcher, r_matcher, i, posterior, "CanPrecede")
+            create_relation(i, posterior, "CanPrecede")
 
         # Similar Code
         antecedents = extracted_weaknesses["CanFollow"]
         # print(antecedants)
         for antecedent in antecedents:
-            create_relation(node_graph, n_matcher, r_matcher, antecedent, i, "CanFollow")
+            create_relation(antecedent, i, "CanFollow")
 
 
 # Takes CVE json object and extracts the CWEs it is linked to
