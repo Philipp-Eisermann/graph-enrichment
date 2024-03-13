@@ -51,9 +51,13 @@ def config_example():
     inventory1 = ["cpe:2.3:a:ati:catalyst_driver:1:2:*:*:*:*:*:*",
                   # "cpe:2.3:o:microsoft:windows_7:-:*:*:*:*:*:*:*",
                   "cpe:2.3:o:microsoft:windows_server_2003:*:sp2:*:*:*:*:*:*"]
+    
     inventory2 = ["cpe:2.3:a:skype_technologies:skype:3.5:*:*:*:*:*:*:*"]
+
     inventory3 = ["cpe:2.3:a:microsoft:internet_explorer:1:2:3:4:5:*:*:*",
                   "cpe:2.3:a:microsoft:internet_explorer:8.0.6001:beta:*:*:*:*:*:*"]
+    
+    inventory4 = ["cpe:2.3:a:sap:business_client:6.5:*:*:*:*:*:*:*"]
 
     # "cpe:2.3:o:apple:mac_os_x:10.1.3:*:*:*:*:*:*:*"
     # Declare Hosts with respective inventories
@@ -76,6 +80,8 @@ def config_example():
     neo4j_backend.create_relation(router1, host1, "subnet1")
     neo4j_backend.create_relation(router1, host2, "subnet1")
     neo4j_backend.create_relation(router1, host3, "subnet2")
+
+    router2 = 
 
 
 if __name__ == "__main__":
