@@ -1,24 +1,93 @@
-from py2neo import Graph, Node, Relationship, NodeMatcher, RelationshipMatcher
-
+from py2neo import Node
 from pycti import OpenCTIApiClient
-from datetime import datetime
-import logging
-
-import os
-
 import json
-# import main - for testing
-from neo4j_backend import create_relation, create_node
 
 
+# Queries opencti for observable objects that are connected to
+# the sdo with stix_id ("id" field of the stix object).
+# Returns array of tuples (object, rel_type)
+def get_sdo_observables(api_client: OpenCTIApiClient, stix_id):
+    stix_relations = api_client.stix_core_relationship.list(
+        first=100,
+        fromId=stix_id  # "ed71b0c9-0355-4468-8e76-04cb301dd9ca"
+    )
+    # TODO: observables can also point TO sdos
+    # ['Basic-Object', 'Stix-Object', 'Stix-Core-Object', 'Stix-Cyber-Observable']
 
-# Queries opencti
-def get_indicators_of_vulnerability(opencti_api):
-    from main import opencti_url, opencti_token
+    ret_observables = []
+    for relation in stix_relations:
+        if 'Stix-Cyber-Observable' in relation["to"]["parent_types"]:
+            ret_observables.append(relation["to"])
+            # query again for links to sdo? -> some relations form loops!
 
-    vulnerability = opencti_api.vulnerability.read(id="vulnerability--87168880-202e-5bdc-ae1b-7db39a95e9ab")
+    stix_relations = api_client.stix_core_relationship.list(
+        first=100,
+        toId=stix_id  # "ed71b0c9-0355-4468-8e76-04cb301dd9ca"
+    )
 
-    print(vulnerability)
+    #ret_observables = []
+    for relation in stix_relations:
+        if 'Stix-Cyber-Observable' in relation["from"]["parent_types"]:
+            ret_observables.append(relation["from"])
+            # query again for links to sdo? -> some relations form loops!
+
+    return ret_observables
+
+
+# Queries opencti for domain objects that point towards
+# vuln objects with cve_id. The function returns an array
+# of tuples (object, relation_type, vuln)
+def get_cve_sdos(api_client: OpenCTIApiClient, cve_id):
+    ''' list of vuln objects with relations for testing:
+    CVE-2023-4911, CVE-2019-3396, CVE-2021-42237, CVE-2022-31199, CVE-2021-34523
+    CVE-2021-27065, CVE-2023-46604, CVE-2023-1389, CVE-2019-0803, CVE-2012-4792
+    CVE-2020-17144, CVE-2015-2545, CVE-2017-11882, CVE-2021-26858, CVE-2021-20016
+    CVE-2019-11510, CVE-2022-24521, CVE-2021-26857, CVE-2016-5198, CVE-2019-15107
+    CVE-2022-21661, CVE-2013-3660, CVE-2017-0144, CVE-2016-0189, CVE-2021-35394
+    CVE-2017-0199
+    '''
+    # get vulnerability object for stix id
+    vulnerability = get_vulnerabilities(api_client, [cve_id])
+
+    if vulnerability:
+        vulnerability = vulnerability[0]
+
+    if (not vulnerability) or ("entity_type" not in vulnerability.keys()) or \
+            (not vulnerability["entity_type"] == "Vulnerability"):
+        # print(f"{cve_id} not a CVE id or no CVE found in the CTI database.")
+        return
+
+    opencti_id = vulnerability["id"]  # stix id without entity_type name in front
+
+    stix_relations = api_client.stix_core_relationship.list(
+        first=100,
+        toId=opencti_id
+    )
+    if len(stix_relations) >= 99:
+        print(f"Warning: Some sdos linked to {vulnerability} may not have been added because of too many instances.")
+    ret_objects = []
+    # Vulnerability sdos can only be pointed at, are never source of relation
+    for relation in stix_relations:
+        # from_object = api_client.stix_domain_object.read(
+        #    id=relation["from"]["id"]
+        # )
+        # The relationships point to one of these types:
+        # Malware, Campaign, Intrusion Set; infrastructure, coa, tool,
+        # threat actor, attack pattern, campaign
+        ret_objects.append((relation['from'], relation["relationship_type"], relation['to']))
+
+    return ret_objects
+
+
+# Returns a list of STIX objects corresponding to the cve_ids (eg. "CVE-2019-1234")
+# in the same order as in the list
+def get_vulnerabilities(api_client: OpenCTIApiClient, cve_ids: list):
+    ret_vulnerabilities = api_client.vulnerability.list(
+        first=len(cve_ids),
+        filters={"mode": "and", "filters": [{"key": "entity_type", "values": ["Vulnerability"]},
+                                            {"key": "name", "values": cve_ids}],
+                 "filterGroups": []})
+    return ret_vulnerabilities
 
 
 # Takes a json representation of a stix object (not bundle!!), deletes all properties that
@@ -44,6 +113,7 @@ def remove_nested_properties(json_obj):
 # Graph - neo4j object for the graph where the object should be added to
 # stix_object - the object to be added
 def create_instance(node_graph, node_matcher_, rel_matcher, stix_object):
+    from neo4j_backend import create_relation, create_node
     # - Returns 0 on successful adding of the object
     # - Returns 1 if the stix_object has a problem
     # - Returns 2 if the object already exists
@@ -124,7 +194,6 @@ def create_instance(node_graph, node_matcher_, rel_matcher, stix_object):
         # node_instance = Node(object_type, **stix_object)
         create_node(Node(object_type, **stix_object))
 
-
     print("Added instance successfully")
     return 0
 
@@ -137,7 +206,7 @@ def unpack_bundle(node_graph, node_matcher, relation_matcher, bundle):
     # We first add the nodes so there are no issues with the pointers of the
     # relations
     for stix_object in bundle["objects"]:
-        #print(stix_object)
+        # print(stix_object)
         if stix_object["type"] == "relationship":
             relations.append(stix_object)
         else:
@@ -148,33 +217,8 @@ def unpack_bundle(node_graph, node_matcher, relation_matcher, bundle):
         create_instance(node_graph, node_matcher, relation_matcher, stix_object)
 
 
-def get_vulnerabilities(api_client: OpenCTIApiClient):
-    logging.getLogger("pycti").setLevel(logging.WARNING)
-
-    # Initialize OpenCTI API client
-    #api_client = OpenCTIApiClient(OPENCTI_URL, OPENCTI_TOKEN)
-
-    # Calculate the start date for the year 2023
-    start_date = datetime(2023, 1, 1, 0, 0, 0)
-
-    # Define the filters for the query
-    filters = [{"key": "created_after", "values": start_date.isoformat()}]
-
-    # [{"created_after": start_date.isoformat(), "entity_type": ["Intrusion-Set"]}]
-
-    # [{"key": "x_mitre_id", "values": ["T1514"]}]
-
-    # Query the number of Intrusion Sets
-    intrusion_sets_count = api_client.location.list(
-        with_pagination=False,
-    )
-
-    print("Number of Intrusion Sets created in 2023: ", intrusion_sets_count)
-
-
 # Test function for this class
 if __name__ == "__main__":
-
     with open("config.json", 'r') as file:
         config_content = file.read()
 
@@ -185,15 +229,23 @@ if __name__ == "__main__":
     neo4j_password = config_content["neo4j_password"]
     bundle_filename = config_content["bundle_filename"]
 
-    graph = Graph(neo4j_uri, auth=(neo4j_user, neo4j_password))
-    node_matcher = NodeMatcher(graph)
-    relation_matcher = RelationshipMatcher(graph)
+    cti_url = config_content["fusioncenter_uri"]
+    cti_token = config_content["access_token_f"]
 
-    current_directory = os.path.dirname(os.path.realpath(__file__))
-    bundle_filepath = os.path.join(current_directory, bundle_filename)
+    opencti_api_client = OpenCTIApiClient(cti_url, cti_token)
 
-    objects_bundle = []  # defined as list!
+    #get_cve_sdos(opencti_api_client, "CVE-2021-27065")
+    print(get_sdo_observables(opencti_api_client, "ed71b0c9-0355-4468-8e76-04cb301dd9ca"))
 
+    # Get vulnerabilities of graph
+    from ag_gen import find_vulnerabilities
+    # conda-repo-cli, tornado 6.4
+
+    #vulnerabilities = find_vulnerabilities()
+
+
+    '''
+    # BUNDLE UNPACKING TESTING
     try:
         # Read the contents of the STIX bundle file
         with open(bundle_filepath, 'r') as file:
@@ -210,4 +262,7 @@ if __name__ == "__main__":
         bundle_data["objects"][i] = remove_nested_properties(bundle_data["objects"][i])
 
     # Process the STIX bundle
-    unpack_bundle(graph, node_matcher, relation_matcher, bundle_data)
+    # unpack_bundle(graph, node_matcher, relation_matcher, bundle_data)
+
+    
+    '''

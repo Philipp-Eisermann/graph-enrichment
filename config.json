@@ -1,8 +1,12 @@
 {
-  "neo4j_uri": "bolt://localhost:xyz",
-  "neo4j_user": "user",
-  "neo4j_password": "adminuser",
+  "neo4j_uri": "bolt://localhost:7687",
+  "neo4j_user": "phil",
+  "neo4j_password": "adminphil",
 
-  "opencti_uri": "demo.opencti.com",
-  "access_token": "accesstoken"
+  "bundle_filename": "json_sample/large_stix.json",
+
+  "opencti_uri": "https://demo.opencti.io",
+  "fusioncenter_uri" : "https://tip.fusioncenter.fr/graphql",
+  "access_token_f": "ca52ac53-bad3-419f-b841-aef22be682d3",
+  "access_token_o": "f99f16da-9902-46f2-9b5a-2538b12290ee"
 }
